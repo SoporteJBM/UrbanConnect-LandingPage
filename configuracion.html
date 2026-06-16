@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>urbanConnect | Configuración</title>
+
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/configuracion.css" />
+</head>
+
+<body>
+  <div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="img/logo-urbanconnect.png" alt="Logo urbanConnect" />
+        <h2>urban<span>Connect</span></h2>
+      </div>
+
+      <nav class="menu">
+        <a href="Index.html" class="menu-item">
+          <span>🏠</span>
+          Inicio
+        </a>
+
+        <a href="comunicados.html" class="menu-item">
+          <span>📢</span>
+          Comunicados
+        </a>
+
+        <a href="reportes.html" class="menu-item">
+          <span>📊</span>
+          Reportes
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>🛠️</span>
+          Servicios
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>📝</span>
+          Encuestas
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>📅</span>
+          Reservas
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>📁</span>
+          Documentos
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>👥</span>
+          Usuarios
+        </a>
+
+        <a href="configuracion.html" class="menu-item active">
+          <span>⚙️</span>
+          Configuración
+        </a>
+      </nav>
+
+      <div class="sidebar-card">
+        <div class="shield-box">🛡️</div>
+        <h3>Plataforma segura para tu comunidad</h3>
+        <p>Tus datos están protegidos</p>
+        <a href="#">Más información →</a>
+      </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+
+      <!-- HEADER -->
+      <header class="topbar">
+        <div>
+          <h1>Configuración</h1>
+          <p>Administra la configuración general de tu comunidad y plataforma.</p>
+        </div>
+
+        <div class="top-actions">
+          <button class="icon-btn">🔍</button>
+
+          <button class="icon-btn notification">
+            🔔
+            <span>3</span>
+          </button>
+
+          <div class="profile">
+            <div class="avatar">JP</div>
+
+            <div>
+              <h4>Juan Pérez</h4>
+              <p>Administrador</p>
+            </div>
+
+            <span class="arrow">⌄</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- TABS -->
+      <section class="settings-tabs">
+        <button class="tab active">
+          <span>⚙️</span>
+          General
+        </button>
+
+        <button class="tab">
+          <span>🔔</span>
+          Notificaciones
+        </button>
+
+        <button class="tab">
+          <span>🛡️</span>
+          Seguridad
+        </button>
+
+        <button class="tab">
+          <span>👥</span>
+          Usuarios
+        </button>
+
+        <button class="tab">
+          <span>💳</span>
+          Pagos
+        </button>
+
+        <button class="tab">
+          <span>☁️</span>
+          Respaldo
+        </button>
+
+        <button class="tab">
+          <span>🧩</span>
+          Integraciones
+        </button>
+      </section>
+
+      <!-- GRID PRINCIPAL -->
+      <section class="settings-grid">
+
+        <!-- INFORMACIÓN DE LA COMUNIDAD -->
+        <article class="panel community-info">
+          <h3>Información de la comunidad</h3>
+
+          <div class="community-form">
+            <div class="logo-upload">
+              <img src="img/logo-urbanconnect.png" alt="Logo comunidad" />
+              <button>↥ Cambiar logo</button>
+            </div>
+
+            <div class="form-fields">
+              <div class="form-group">
+                <label>Nombre de la comunidad</label>
+                <input type="text" value="Residencial Acacias del Parque" />
+              </div>
+
+              <div class="form-group">
+                <label>Correo de contacto</label>
+                <input type="email" value="admin@acaciasdelparque.com" />
+              </div>
+
+              <div class="form-group">
+                <label>Teléfono de contacto</label>
+                <input type="text" value="+52 55 1234 5678" />
+              </div>
+
+              <div class="form-group">
+                <label>Sitio web opcional</label>
+                <input type="text" value="www.acaciasdelparque.com" />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <label>Dirección</label>
+            <input type="text" value="Av. del Parque 123, Col. Centro, Ciudad de México, C.P. 06000" />
+          </div>
+
+          <div class="select-row">
+            <div class="form-group">
+              <label>Zona horaria</label>
+              <select>
+                <option>(GMT-06:00) Ciudad de México</option>
+                <option>(GMT-05:00) Lima</option>
+                <option>(GMT-03:00) Buenos Aires</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Idioma</label>
+              <select>
+                <option>Español</option>
+                <option>Inglés</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Moneda</label>
+              <select>
+                <option>MXN - Peso Mexicano</option>
+                <option>PEN - Sol Peruano</option>
+                <option>USD - Dólar</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="save-btn">↥ Guardar cambios</button>
+        </article>
+
+        <!-- APARIENCIA -->
+        <article class="panel appearance-panel">
+          <h3>Apariencia del sistema</h3>
+
+          <div class="form-group">
+            <label>Tema</label>
+
+            <div class="theme-options">
+              <div class="theme-card active">
+                <span>☀️</span>
+                <strong>Claro</strong>
+                <i>✓</i>
+              </div>
+
+              <div class="theme-card">
+                <span>🌙</span>
+                <strong>Oscuro</strong>
+              </div>
+
+              <div class="theme-card">
+                <span>🖥️</span>
+                <strong>Sistema</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Color primario</label>
+
+            <div class="color-options">
+              <button class="color green active">✓</button>
+              <button class="color blue"></button>
+              <button class="color purple"></button>
+              <button class="color orange"></button>
+              <button class="color red"></button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Logo en el login ⓘ</label>
+
+            <div class="login-logo-preview">
+              <img src="img/logo-urbanconnect.png" alt="Logo urbanConnect" />
+              <h2>urban<span>Connect</span></h2>
+              <button>↥ Cambiar logo</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- AJUSTES DEL SISTEMA -->
+        <article class="panel system-settings">
+          <h3>Ajustes del sistema</h3>
+
+          <div class="switch-grid">
+            <div class="switch-item">
+              <div>
+                <h4>Permitir registro de nuevos residentes</h4>
+                <p>Los residentes podrán registrarse desde la plataforma.</p>
+              </div>
+
+              <label class="switch">
+                <input type="checkbox" checked />
+                <span></span>
+              </label>
+            </div>
+
+            <div class="switch-item">
+              <div>
+                <h4>Habilitar comunicados por email</h4>
+                <p>Enviar comunicados importantes por correo electrónico.</p>
+              </div>
+
+              <label class="switch">
+                <input type="checkbox" checked />
+                <span></span>
+              </label>
+            </div>
+
+            <div class="switch-item">
+              <div>
+                <h4>Aprobación manual de residentes</h4>
+                <p>Requiere aprobación del administrador para nuevos registros.</p>
+              </div>
+
+              <label class="switch">
+                <input type="checkbox" checked />
+                <span></span>
+              </label>
+            </div>
+
+            <div class="switch-item">
+              <div>
+                <h4>Habilitar reportes anónimos</h4>
+                <p>Permitir a los residentes enviar reportes de forma anónima.</p>
+              </div>
+
+              <label class="switch">
+                <input type="checkbox" checked />
+                <span></span>
+              </label>
+            </div>
+
+            <div class="switch-item">
+              <div>
+                <h4>Habilitar módulo de reservas</h4>
+                <p>Permite a los residentes realizar reservas de amenidades.</p>
+              </div>
+
+              <label class="switch">
+                <input type="checkbox" checked />
+                <span></span>
+              </label>
+            </div>
+
+            <div class="switch-item">
+              <div>
+                <h4>Modo mantenimiento</h4>
+                <p>La plataforma estará en modo mantenimiento.</p>
+              </div>
+
+              <label class="switch">
+                <input type="checkbox" />
+                <span></span>
+              </label>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </main>
+
+    <!-- PANEL DERECHO -->
+    <aside class="right-panel">
+
+      <section class="side-widget">
+        <h3>Información de la cuenta</h3>
+
+        <div class="info-list">
+          <div>
+            <span>Plan actual</span>
+            <strong class="badge premium">Premium</strong>
+          </div>
+
+          <div>
+            <span>Usuarios activos</span>
+            <strong>128 / 200</strong>
+          </div>
+
+          <div>
+            <span>Almacenamiento</span>
+            <strong>2.4 GB / 10 GB</strong>
+          </div>
+
+          <div>
+            <span>Renovación</span>
+            <strong>15 Jun 2025</strong>
+          </div>
+        </div>
+
+        <button class="outline-btn">Ver detalles del plan</button>
+      </section>
+
+      <section class="side-widget">
+        <h3>Acciones rápidas</h3>
+
+        <div class="quick-actions">
+          <a href="#">
+            <span>💾</span>
+            Respaldar información
+            <strong>›</strong>
+          </a>
+
+          <a href="#">
+            <span>⚙️</span>
+            Restablecer configuración
+            <strong>›</strong>
+          </a>
+
+          <a href="#">
+            <span>⬇️</span>
+            Exportar datos
+            <strong>›</strong>
+          </a>
+
+          <a href="#">
+            <span>📋</span>
+            Ver logs del sistema
+            <strong>›</strong>
+          </a>
+        </div>
+      </section>
+
+      <section class="side-widget">
+        <h3>Información del sistema</h3>
+
+        <div class="info-list">
+          <div>
+            <span>Versión</span>
+            <strong>v2.4.1</strong>
+          </div>
+
+          <div>
+            <span>Última actualización</span>
+            <strong>10 May 2025</strong>
+          </div>
+
+          <div>
+            <span>Estado del sistema</span>
+            <strong class="green-text">● Operativo</strong>
+          </div>
+
+          <div>
+            <span>Tiempo de actividad</span>
+            <strong>99.9%</strong>
+          </div>
+        </div>
+
+        <a class="system-link" href="#">Ver estado del sistema →</a>
+      </section>
+
+    </aside>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>urbanConnect | Inicio</title>
+<link rel="stylesheet" href="css/global.css" />
+<link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+  <div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="img/logo-urbanconnect.png" alt="Logo urbanConnect" />
+        <h2>urban<span>Connect</span></h2>
+      </div>
+
+      <nav class="menu">
+        <a href="#" class="menu-item active">
+          <span>🏠</span>
+          Inicio
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>📢</span>
+          Comunicados
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>📊</span>
+          Reportes
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>🛠️</span>
+          Servicios
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>📝</span>
+          Encuestas
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>📅</span>
+          Reservas
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>📁</span>
+          Documentos
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>👥</span>
+          Usuarios
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>⚙️</span>
+          Configuración
+        </a>
+      </nav>
+
+      <div class="sidebar-card">
+        <div class="shield-icon">🛡️</div>
+        <h3>Plataforma segura para tu comunidad</h3>
+        <p>Tus datos están protegidos</p>
+        <a href="#">Más información →</a>
+      </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+
+      <!-- HEADER -->
+      <header class="topbar">
+        <div>
+          <h1>¡Bienvenido, Juan Pérez! 👋</h1>
+          <p>Aquí tienes un resumen de lo que sucede en tu comunidad.</p>
+        </div>
+
+        <div class="top-actions">
+          <button class="icon-btn">🔍</button>
+
+          <button class="icon-btn notification">
+            🔔
+            <span>3</span>
+          </button>
+
+          <div class="profile">
+            <div class="avatar">JP</div>
+            <div>
+              <h4>Juan Pérez</h4>
+              <p>Administrador</p>
+            </div>
+            <span class="arrow">⌄</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- CARDS RESUMEN -->
+      <section class="stats-grid">
+        <article class="stat-card">
+          <div class="stat-icon green">👥</div>
+          <div>
+            <p>Total residentes</p>
+            <h2>256</h2>
+            <span class="positive">+12 este mes ↗</span>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-icon blue">📢</div>
+          <div>
+            <p>Comunicados</p>
+            <h2>8</h2>
+            <span>2 sin leer</span>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-icon orange">📋</div>
+          <div>
+            <p>Reportes abiertos</p>
+            <h2>15</h2>
+            <span class="danger">3 urgentes</span>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-icon purple">📅</div>
+          <div>
+            <p>Reservas hoy</p>
+            <h2>5</h2>
+            <span>Ver calendario</span>
+          </div>
+        </article>
+      </section>
+
+      <!-- GRID PRINCIPAL -->
+      <section class="content-grid">
+
+        <!-- REPORTES POR CATEGORÍA -->
+        <article class="panel reports-panel">
+          <div class="panel-header">
+            <h3>Reportes por categoría</h3>
+            <select>
+              <option>Este mes</option>
+              <option>Esta semana</option>
+              <option>Hoy</option>
+            </select>
+          </div>
+
+          <div class="reports-content">
+            <div class="donut">
+              <svg viewBox="0 0 120 120">
+                <circle class="donut-bg" cx="60" cy="60" r="42"></circle>
+                <circle class="donut-green" cx="60" cy="60" r="42"></circle>
+                <circle class="donut-blue" cx="60" cy="60" r="42"></circle>
+                <circle class="donut-orange" cx="60" cy="60" r="42"></circle>
+                <circle class="donut-purple" cx="60" cy="60" r="42"></circle>
+              </svg>
+
+              <div class="donut-center">
+                <span>Total</span>
+                <strong>45</strong>
+              </div>
+            </div>
+
+            <div class="legend">
+              <div>
+                <span class="dot green"></span>
+                Mantenimiento
+                <strong>18 (40%)</strong>
+              </div>
+
+              <div>
+                <span class="dot blue"></span>
+                Seguridad
+                <strong>12 (27%)</strong>
+              </div>
+
+              <div>
+                <span class="dot orange"></span>
+                Limpieza
+                <strong>9 (20%)</strong>
+              </div>
+
+              <div>
+                <span class="dot purple"></span>
+                Otros
+                <strong>6 (13%)</strong>
+              </div>
+            </div>
+          </div>
+
+          <button class="outline-btn">Ver todos los reportes →</button>
+        </article>
+
+        <!-- COMUNICADOS RECIENTES -->
+        <article class="panel announcements-panel">
+          <div class="panel-header">
+            <h3>Comunicados recientes</h3>
+            <a href="#">Ver todos</a>
+          </div>
+
+          <div class="announcement-list">
+            <div class="announcement-item">
+              <div class="item-icon">📢</div>
+              <div>
+                <h4>Mantenimiento en el elevador principal</h4>
+                <p>Se realizará mantenimiento preventivo...</p>
+              </div>
+              <span>20 May<br>2025</span>
+            </div>
+
+            <div class="announcement-item">
+              <div class="item-icon">📢</div>
+              <div>
+                <h4>Asamblea general ordinaria</h4>
+                <p>Se convoca a todos los residentes a la...</p>
+              </div>
+              <span>18 May<br>2025</span>
+            </div>
+
+            <div class="announcement-item">
+              <div class="item-icon">📢</div>
+              <div>
+                <h4>Suspensión de servicio de agua</h4>
+                <p>El próximo jueves 23 de mayo habrá...</p>
+              </div>
+              <span>15 May<br>2025</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ACTIVIDAD RECIENTE -->
+        <article class="panel activity-panel">
+          <div class="panel-header">
+            <h3>Actividad reciente</h3>
+            <a href="#">Ver toda la actividad</a>
+          </div>
+
+          <div class="activity-list">
+            <div class="activity-item">
+              <div class="activity-icon green">✓</div>
+              <div>
+                <p>Tu reporte <strong>#R-2025-045</strong> ha sido solucionado</p>
+                <span>Hace 2 horas</span>
+              </div>
+              <span class="badge success">Completado</span>
+            </div>
+
+            <div class="activity-item">
+              <div class="activity-icon blue">📢</div>
+              <div>
+                <p>Nuevo comunicado: “Mantenimiento en el elevador principal”</p>
+                <span>Hace 1 día</span>
+              </div>
+              <span class="badge info">Nuevo</span>
+            </div>
+
+            <div class="activity-item">
+              <div class="activity-icon orange">👤</div>
+              <div>
+                <p>María Gómez se registró en la plataforma</p>
+                <span>Hace 2 días</span>
+              </div>
+              <span class="badge warning">Usuario</span>
+            </div>
+
+            <div class="activity-item">
+              <div class="activity-icon purple">📅</div>
+              <div>
+                <p>Reserva confirmada: Salón de eventos</p>
+                <span>Hace 2 días</span>
+              </div>
+              <span class="badge purple">Reserva</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD COMUNIDAD -->
+        <article class="panel community-card">
+          <img src="img/city-background.png" alt="Comunidad urbanConnect" />
+          <h3>¡Tu comunidad, conectada!</h3>
+          <p>Participa activamente y mantente informado de todo lo que sucede.</p>
+        </article>
+
+      </section>
+    </main>
+
+    <!-- PANEL DERECHO -->
+    <aside class="right-panel">
+
+      <section class="side-widget">
+        <div class="panel-header">
+          <h3>Próximas reservas</h3>
+          <a href="#">Ver todas</a>
+        </div>
+
+        <div class="reservation-item">
+          <div class="reservation-icon">🏢</div>
+          <div>
+            <h4>Salón de eventos</h4>
+            <p>24 May 2025 · 4:00 PM</p>
+            <span class="badge success">Confirmada</span>
+          </div>
+        </div>
+
+        <div class="reservation-item">
+          <div class="reservation-icon">⚽</div>
+          <div>
+            <h4>Cancha múltiple</h4>
+            <p>25 May 2025 · 9:00 AM</p>
+            <span class="badge success">Confirmada</span>
+          </div>
+        </div>
+
+        <div class="reservation-item">
+          <div class="reservation-icon">🔥</div>
+          <div>
+            <h4>Zona de parrillas</h4>
+            <p>25 May 2025 · 1:00 PM</p>
+            <span class="badge warning">Pendiente</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="side-widget">
+        <h3>Accesos rápidos</h3>
+
+        <div class="quick-links">
+          <a href="#">
+            <span>📢</span>
+            Crear comunicado
+            <strong>›</strong>
+          </a>
+
+          <a href="#">
+            <span>➕</span>
+            Nuevo reporte
+            <strong>›</strong>
+          </a>
+
+          <a href="#">
+            <span>📅</span>
+            Reservar espacio
+            <strong>›</strong>
+          </a>
+
+          <a href="#">
+            <span>📁</span>
+            Documentos importantes
+            <strong>›</strong>
+          </a>
+        </div>
+      </section>
+
+    </aside>
+
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

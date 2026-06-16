@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>urbanConnect | Reportes</title>
+
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/reportes.css" />
+</head>
+
+<body>
+  <div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="img/logo-urbanconnect.png" alt="Logo urbanConnect" />
+        <h2>urban<span>Connect</span></h2>
+      </div>
+
+      <nav class="menu">
+        <a href="dashboard.html" class="menu-item">
+          <span>🏠</span>
+          Inicio
+        </a>
+
+        <a href="comunicados.html" class="menu-item">
+          <span>📢</span>
+          Comunicados
+        </a>
+
+        <a href="reportes.html" class="menu-item active">
+          <span>📊</span>
+          Reportes
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>🛠️</span>
+          Servicios
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>📝</span>
+          Encuestas
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>📅</span>
+          Reservas
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>📁</span>
+          Documentos
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>👥</span>
+          Usuarios
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>⚙️</span>
+          Configuración
+        </a>
+      </nav>
+
+      <div class="sidebar-card">
+        <div class="shield-box">🛡️</div>
+        <h3>Plataforma segura para tu comunidad</h3>
+        <p>Tus datos están protegidos</p>
+        <a href="#">Más información →</a>
+      </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+
+      <!-- HEADER -->
+      <header class="topbar">
+        <div>
+          <h1>Reportes</h1>
+          <p>Gestiona y da seguimiento a los reportes de tu comunidad.</p>
+        </div>
+
+        <div class="top-actions">
+          <button class="icon-btn">🔍</button>
+
+          <button class="icon-btn notification">
+            🔔
+            <span>3</span>
+          </button>
+
+          <div class="profile">
+            <div class="avatar">JP</div>
+
+            <div>
+              <h4>Juan Pérez</h4>
+              <p>Administrador</p>
+            </div>
+
+            <span class="arrow">⌄</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- RESUMEN -->
+      <section class="stats-row">
+        <article class="stat-card">
+          <div class="stat-icon green">📋</div>
+          <div>
+            <p>Total reportes</p>
+            <h2>45</h2>
+            <span>Este mes</span>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-icon orange">🕒</div>
+          <div>
+            <p>Abiertos</p>
+            <h2>15</h2>
+            <span>33.3% del total</span>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-icon blue">🔄</div>
+          <div>
+            <p>En proceso</p>
+            <h2>18</h2>
+            <span>40% del total</span>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-icon green">✅</div>
+          <div>
+            <p>Resueltos</p>
+            <h2>10</h2>
+            <span>22.2% del total</span>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-icon red">✕</div>
+          <div>
+            <p>Cancelados</p>
+            <h2>2</h2>
+            <span>4.4% del total</span>
+          </div>
+        </article>
+      </section>
+
+      <!-- PANEL REPORTES -->
+      <section class="reports-panel">
+
+        <div class="tabs-header">
+          <div class="tabs">
+            <button class="tab active">Todos</button>
+            <button class="tab">Abiertos</button>
+            <button class="tab">En proceso</button>
+            <button class="tab">Resueltos</button>
+            <button class="tab">Cancelados</button>
+          </div>
+
+          <button class="create-btn">
+            <span>＋</span>
+            Nuevo reporte
+          </button>
+        </div>
+
+        <div class="filters">
+          <div class="search-box">
+            <input type="text" placeholder="Buscar reportes..." />
+            <span>🔍</span>
+          </div>
+
+          <select>
+            <option>Todas las categorías</option>
+            <option>Mantenimiento</option>
+            <option>Alumbrado</option>
+            <option>Plomería</option>
+            <option>Áreas comunes</option>
+            <option>Seguridad</option>
+          </select>
+
+          <select>
+            <option>Todos los estados</option>
+            <option>Abierto</option>
+            <option>En proceso</option>
+            <option>Resuelto</option>
+            <option>Cancelado</option>
+          </select>
+
+          <select>
+            <option>Más recientes</option>
+            <option>Más antiguos</option>
+            <option>Mayor prioridad</option>
+          </select>
+
+          <button class="filter-btn">⚗️ Filtros</button>
+        </div>
+
+        <div class="report-list">
+
+          <article class="report-card">
+            <div class="report-thumb elevator">🏢</div>
+
+            <div class="report-info">
+              <span class="priority high">Urgente</span>
+              <h3>Falla en el elevador principal</h3>
+              <p>El elevador se queda detenido entre pisos y tarda en responder los botones.</p>
+
+              <div class="report-tags">
+                <span class="tag blue">Mantenimiento</span>
+                <span class="location">📍 Torre A - Piso 3</span>
+              </div>
+            </div>
+
+            <div class="report-meta">
+              <span class="status open">Abierto</span>
+              <h4>#R-2025-045</h4>
+              <p>20 May 2025 · 10:30 AM</p>
+              <small><i class="dot red"></i> Prioridad: Alta</small>
+            </div>
+
+            <button class="more-btn">•••</button>
+          </article>
+
+          <article class="report-card">
+            <div class="report-thumb light">💡</div>
+
+            <div class="report-info">
+              <h3>Luminaria del estacionamiento apagada</h3>
+              <p>La lámpara del poste en el estacionamiento no enciende desde hace 3 días.</p>
+
+              <div class="report-tags">
+                <span class="tag green">Alumbrado</span>
+                <span class="location">📍 Estacionamiento</span>
+              </div>
+            </div>
+
+            <div class="report-meta">
+              <span class="status process">En proceso</span>
+              <h4>#R-2025-044</h4>
+              <p>19 May 2025 · 08:15 PM</p>
+              <small><i class="dot orange"></i> Prioridad: Media</small>
+            </div>
+
+            <button class="more-btn">•••</button>
+          </article>
+
+          <article class="report-card">
+            <div class="report-thumb water">💧</div>
+
+            <div class="report-info">
+              <h3>Fuga de agua en área común</h3>
+              <p>Hay una fuga de agua en el jardín cerca de la entrada principal.</p>
+
+              <div class="report-tags">
+                <span class="tag purple">Plomería</span>
+                <span class="location">📍 Jardín principal</span>
+              </div>
+            </div>
+
+            <div class="report-meta">
+              <span class="status process">En proceso</span>
+              <h4>#R-2025-043</h4>
+              <p>18 May 2025 · 04:40 PM</p>
+              <small><i class="dot orange"></i> Prioridad: Media</small>
+            </div>
+
+            <button class="more-btn">•••</button>
+          </article>
+
+          <article class="report-card">
+            <div class="report-thumb park">🌳</div>
+
+            <div class="report-info">
+              <h3>Banca en mal estado</h3>
+              <p>La banca de madera en el parque está rota y puede ser peligrosa.</p>
+
+              <div class="report-tags">
+                <span class="tag orange">Áreas comunes</span>
+                <span class="location">📍 Parque central</span>
+              </div>
+            </div>
+
+            <div class="report-meta">
+              <span class="status solved">Resuelto</span>
+              <h4>#R-2025-042</h4>
+              <p>17 May 2025 · 11:20 AM</p>
+              <small><i class="dot green"></i> Prioridad: Baja</small>
+            </div>
+
+            <button class="more-btn">•••</button>
+          </article>
+
+          <article class="report-card">
+            <div class="report-thumb camera">📷</div>
+
+            <div class="report-info">
+              <h3>Cámara de seguridad sin funcionamiento</h3>
+              <p>La cámara en la entrada peatonal no está transmitiendo imagen.</p>
+
+              <div class="report-tags">
+                <span class="tag red">Seguridad</span>
+                <span class="location">📍 Entrada peatonal</span>
+              </div>
+            </div>
+
+            <div class="report-meta">
+              <span class="status canceled">Cancelado</span>
+              <h4>#R-2025-041</h4>
+              <p>16 May 2025 · 09:10 AM</p>
+              <small><i class="dot red"></i> Prioridad: Alta</small>
+            </div>
+
+            <button class="more-btn">•••</button>
+          </article>
+
+        </div>
+
+        <div class="pagination">
+          <p>Mostrando 1 a 5 de 45 reportes</p>
+
+          <div class="pages">
+            <button disabled>‹</button>
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>›</button>
+          </div>
+
+          <select>
+            <option>10 por página</option>
+            <option>20 por página</option>
+            <option>50 por página</option>
+          </select>
+        </div>
+
+      </section>
+    </main>
+
+    <!-- PANEL DERECHO -->
+    <aside class="right-panel">
+
+      <section class="side-widget">
+        <h3>Reportes por categoría</h3>
+
+        <div class="donut">
+          <svg viewBox="0 0 120 120">
+            <circle class="donut-bg" cx="60" cy="60" r="42"></circle>
+            <circle class="donut-blue" cx="60" cy="60" r="42"></circle>
+            <circle class="donut-green" cx="60" cy="60" r="42"></circle>
+            <circle class="donut-orange" cx="60" cy="60" r="42"></circle>
+            <circle class="donut-purple" cx="60" cy="60" r="42"></circle>
+            <circle class="donut-red" cx="60" cy="60" r="42"></circle>
+          </svg>
+
+          <div class="donut-center">
+            <span>Total</span>
+            <strong>45</strong>
+          </div>
+        </div>
+
+        <div class="legend">
+          <div>
+            <span><i class="dot green"></i>Mantenimiento</span>
+            <strong>18 (40%)</strong>
+          </div>
+
+          <div>
+            <span><i class="dot brown"></i>Alumbrado</span>
+            <strong>9 (20%)</strong>
+          </div>
+
+          <div>
+            <span><i class="dot purple"></i>Plomería</span>
+            <strong>7 (15.6%)</strong>
+          </div>
+
+          <div>
+            <span><i class="dot orange"></i>Áreas comunes</span>
+            <strong>6 (13.3%)</strong>
+          </div>
+
+          <div>
+            <span><i class="dot red"></i>Seguridad</span>
+            <strong>5 (11.1%)</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="side-widget attention-widget">
+        <h3>Tiempo promedio de atención</h3>
+
+        <div class="attention-content">
+          <div class="attention-icon">⏱️</div>
+          <div>
+            <h2>2.4 días</h2>
+            <p>Este mes</p>
+            <span>↓ 15% vs mes anterior</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="side-widget">
+        <h3>Reportes recientes</h3>
+
+        <div class="recent-list">
+          <div>
+            <span>🏢</span>
+            <p>
+              <strong>Falla en el elevador principal</strong>
+              <small>Abierto · Hace 2 horas</small>
+            </p>
+          </div>
+
+          <div>
+            <span>💡</span>
+            <p>
+              <strong>Luminaria del estacionamiento...</strong>
+              <small>En proceso · Hace 1 día</small>
+            </p>
+          </div>
+
+          <div>
+            <span>💧</span>
+            <p>
+              <strong>Fuga de agua en área común</strong>
+              <small>En proceso · Hace 2 días</small>
+            </p>
+          </div>
+        </div>
+
+        <a href="#" class="see-all">Ver todos los reportes →</a>
+      </section>
+
+      <section class="side-widget">
+        <h3>Acciones rápidas</h3>
+
+        <div class="quick-actions">
+          <button>＋ Nuevo reporte</button>
+          <button>📍 Ver mapa de reportes</button>
+        </div>
+      </section>
+
+    </aside>
+
+  </div>
+</body>
+</html>

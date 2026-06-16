@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>UrbanConnect | Comunicados</title>
+
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/comunicados.css" />
+</head>
+
+<body>
+  <div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="img/logo-urbanconnect.png" alt="Logo urbanConnect" />
+        <h2>urban<span>Connect</span></h2>
+      </div>
+
+      <nav class="menu">
+        <a href="dashboard.html" class="menu-item">
+          <span>🏠</span>
+          Inicio
+        </a>
+
+        <a href="comunicados.html" class="menu-item active">
+          <span>📢</span>
+          Comunicados
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>📊</span>
+          Reportes
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>🛠️</span>
+          Servicios
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>📝</span>
+          Encuestas
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>📅</span>
+          Reservas
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>📁</span>
+          Documentos
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>👥</span>
+          Usuarios
+        </a>
+
+        <a href="#" class="menu-item">
+          <span>⚙️</span>
+          Configuración
+        </a>
+      </nav>
+
+      <div class="sidebar-card">
+        <div class="shield-box">🛡️</div>
+
+        <h3>Plataforma segura para tu comunidad</h3>
+        <p>Tus datos están protegidos</p>
+
+        <a href="#">Más información →</a>
+      </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+
+      <!-- HEADER -->
+      <header class="topbar">
+        <div>
+          <h1>Comunicados</h1>
+          <p>Mantén informada a tu comunidad de todo lo importante.</p>
+        </div>
+
+        <div class="top-actions">
+          <button class="icon-btn">🔍</button>
+
+          <button class="icon-btn notification">
+            🔔
+            <span>3</span>
+          </button>
+
+          <div class="profile">
+            <div class="avatar">JP</div>
+
+            <div>
+              <h4>Juan Pérez</h4>
+              <p>Administrador</p>
+            </div>
+
+            <span class="arrow">⌄</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- PANEL COMUNICADOS -->
+      <section class="announcements-panel">
+
+        <div class="tabs-header">
+          <div class="tabs">
+            <button class="tab active">Todos</button>
+            <button class="tab">Publicados</button>
+            <button class="tab">Borradores</button>
+            <button class="tab">Programados</button>
+            <button class="tab">Archivados</button>
+          </div>
+
+          <button class="create-btn">
+            <span>＋</span>
+            Crear comunicado
+          </button>
+        </div>
+
+        <div class="filters">
+          <div class="search-box">
+            <input type="text" placeholder="Buscar comunicados..." />
+            <span>🔍</span>
+          </div>
+
+          <select>
+            <option>Todas las categorías</option>
+            <option>Mantenimiento</option>
+            <option>Asamblea</option>
+            <option>Servicios</option>
+            <option>Convivencia</option>
+          </select>
+
+          <select>
+            <option>Más recientes</option>
+            <option>Más antiguos</option>
+            <option>Más vistos</option>
+          </select>
+
+          <button class="filter-btn">⚗️ Filtros</button>
+        </div>
+
+        <div class="announcement-list">
+
+          <article class="announcement-card">
+            <div class="announcement-icon blue">📢</div>
+
+            <div class="announcement-info">
+              <h3>Mantenimiento en el elevador principal</h3>
+              <p>Se realizará mantenimiento preventivo en el elevador principal el día sábado 25 de mayo de 8:00 AM a 12:00 PM.</p>
+              <span class="category blue-light">Mantenimiento</span>
+            </div>
+
+            <div class="announcement-meta">
+              <span class="status published">Publicado</span>
+              <p>20 May 2025</p>
+              <small>10:30 AM</small>
+              <small>👁️ 128 vistas</small>
+            </div>
+
+            <button class="more-btn">•••</button>
+          </article>
+
+          <article class="announcement-card">
+            <div class="announcement-icon green">👥</div>
+
+            <div class="announcement-info">
+              <h3>Asamblea general ordinaria</h3>
+              <p>Se convoca a todos los residentes a la asamblea general ordinaria que se llevará a cabo el próximo 30 de mayo.</p>
+              <span class="category green-light">Asamblea</span>
+            </div>
+
+            <div class="announcement-meta">
+              <span class="status published">Publicado</span>
+              <p>18 May 2025</p>
+              <small>4:15 PM</small>
+              <small>👁️ 98 vistas</small>
+            </div>
+
+            <button class="more-btn">•••</button>
+          </article>
+
+          <article class="announcement-card">
+            <div class="announcement-icon orange">💧</div>
+
+            <div class="announcement-info">
+              <h3>Suspensión de servicio de agua</h3>
+              <p>El próximo jueves 23 de mayo habrá suspensión del servicio de agua de 9:00 AM a 2:00 PM por trabajos de reparación.</p>
+              <span class="category orange-light">Servicios</span>
+            </div>
+
+            <div class="announcement-meta">
+              <span class="status published">Publicado</span>
+              <p>15 May 2025</p>
+              <small>9:00 AM</small>
+              <small>👁️ 156 vistas</small>
+            </div>
+
+            <button class="more-btn">•••</button>
+          </article>
+
+          <article class="announcement-card">
+            <div class="announcement-icon purple">📅</div>
+
+            <div class="announcement-info">
+              <h3>Nueva zona de parrillas disponible</h3>
+              <p>Informamos que la nueva zona de parrillas ya está disponible para reservas. ¡Disfruta con tu familia y amigos!</p>
+              <span class="category purple-light">General</span>
+            </div>
+
+            <div class="announcement-meta">
+              <span class="status scheduled">Programado</span>
+              <p>24 May 2025</p>
+              <small>8:00 AM</small>
+              <small>🕒 Programado</small>
+            </div>
+
+            <button class="more-btn">•••</button>
+          </article>
+
+          <article class="announcement-card">
+            <div class="announcement-icon gray">🛡️</div>
+
+            <div class="announcement-info">
+              <h3>Recordatorio: Normas de convivencia</h3>
+              <p>Recordamos a todos los residentes la importancia de mantener las normas de convivencia para una mejor comunidad.</p>
+              <span class="category gray-light">Convivencia</span>
+            </div>
+
+            <div class="announcement-meta">
+              <span class="status draft">Borrador</span>
+              <p>—</p>
+              <small>—</small>
+            </div>
+
+            <button class="more-btn">•••</button>
+          </article>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- PANEL DERECHO -->
+    <aside class="right-panel">
+
+      <section class="side-widget">
+        <h3>Resumen</h3>
+
+        <div class="summary-list">
+          <div>
+            <span>Total comunicados</span>
+            <strong>24</strong>
+          </div>
+
+          <div>
+            <span>Publicados</span>
+            <strong class="green-text">18</strong>
+          </div>
+
+          <div>
+            <span>Programados</span>
+            <strong class="blue-text">3</strong>
+          </div>
+
+          <div>
+            <span>Borradores</span>
+            <strong class="orange-text">2</strong>
+          </div>
+
+          <div>
+            <span>Archivados</span>
+            <strong>1</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="side-widget">
+        <h3>Categorías</h3>
+
+        <div class="category-list">
+          <div class="active">
+            <span><i class="dot green"></i>Todos</span>
+            <strong>24</strong>
+          </div>
+
+          <div>
+            <span><i class="dot blue"></i>Mantenimiento</span>
+            <strong>6</strong>
+          </div>
+
+          <div>
+            <span><i class="dot green"></i>Asamblea</span>
+            <strong>5</strong>
+          </div>
+
+          <div>
+            <span><i class="dot orange"></i>Servicios</span>
+            <strong>4</strong>
+          </div>
+
+          <div>
+            <span><i class="dot purple"></i>Convivencia</span>
+            <strong>3</strong>
+          </div>
+
+          <div>
+            <span><i class="dot gray"></i>General</span>
+            <strong>6</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="side-widget info-widget">
+        <h3>ⓘ Información</h3>
+
+        <p>
+          Los comunicados publicados serán notificados a todos los residentes a través de la plataforma.
+        </p>
+      </section>
+
+    </aside>
+
+  </div>
+</body>
+</html>
