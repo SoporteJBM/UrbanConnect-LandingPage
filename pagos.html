@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>urbanConnect | Pagos</title>
+
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/pagos.css" />
+</head>
+
+<body>
+  <div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="img/logo-urbanconnect.png" alt="Logo urbanConnect" />
+        <h2>urban<span>Connect</span></h2>
+      </div>
+
+      <nav class="menu">
+        <a href="index.html" class="menu-item">
+          <span>🏠</span>
+          Inicio
+        </a>
+
+        <a href="comunicados.html" class="menu-item">
+          <span>📢</span>
+          Comunicados
+        </a>
+
+        <a href="reportes.html" class="menu-item">
+          <span>📊</span>
+          Reportes
+        </a>
+
+        <a href="servicios.html" class="menu-item">
+          <span>🛠️</span>
+          Servicios
+        </a>
+
+        <a href="encuestas.html" class="menu-item">
+          <span>📝</span>
+          Encuestas
+        </a>
+
+        <a href="reservas.html" class="menu-item">
+          <span>📅</span>
+          Reservas
+        </a>
+
+        <a href="pagos.html" class="menu-item active">
+          <span>💳</span>
+          Pagos
+        </a>
+
+        <a href="documentos.html" class="menu-item">
+          <span>📁</span>
+          Documentos
+        </a>
+
+        <a href="usuarios.html" class="menu-item">
+          <span>👥</span>
+          Usuarios
+        </a>
+
+        <a href="configuracion.html" class="menu-item">
+          <span>⚙️</span>
+          Configuración
+        </a>
+      </nav>
+
+      <div class="sidebar-card">
+        <div class="shield-box">🛡️</div>
+        <h3>Plataforma segura para tu comunidad</h3>
+        <p>Tus datos están protegidos</p>
+        <a href="#">Más información →</a>
+      </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+
+      <!-- HEADER -->
+      <header class="topbar">
+        <div>
+          <h1>Pagos</h1>
+          <p>Consulta cuotas, vencimientos e historial financiero de la comunidad.</p>
+        </div>
+
+        <div class="top-actions">
+          <button class="icon-btn">🔍</button>
+
+          <button class="icon-btn notification">
+            🔔
+            <span>3</span>
+          </button>
+
+          <div class="profile">
+            <div class="avatar">JP</div>
+
+            <div>
+              <h4>Juan Pérez</h4>
+              <p>Administrador</p>
+            </div>
+
+            <span class="arrow">⌄</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- RESUMEN -->
+      <section class="stats-row">
+        <article class="stat-card">
+          <div class="stat-icon green">💰</div>
+          <div>
+            <p>Recaudado este mes</p>
+            <h2>$84,500</h2>
+            <span>78% de la meta</span>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-icon orange">⏳</div>
+          <div>
+            <p>Pagos pendientes</p>
+            <h2>$23,800</h2>
+            <span>18 departamentos</span>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-icon blue">📄</div>
+          <div>
+            <p>Cuotas emitidas</p>
+            <h2>128</h2>
+            <span>Junio 2026</span>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-icon red">⚠️</div>
+          <div>
+            <p>Vencidas</p>
+            <h2>7</h2>
+            <span>Requieren seguimiento</span>
+          </div>
+        </article>
+      </section>
+
+      <!-- PANEL PAGOS -->
+      <section class="payments-panel">
+
+        <div class="tabs-header">
+          <div class="tabs">
+            <button class="tab active">Todos</button>
+            <button class="tab">Pagados</button>
+            <button class="tab">Pendientes</button>
+            <button class="tab">Vencidos</button>
+            <button class="tab">Convenios</button>
+          </div>
+
+          <button class="create-btn">
+            <span>＋</span>
+            Registrar pago
+          </button>
+        </div>
+
+        <div class="filters">
+          <div class="search-box">
+            <input type="text" placeholder="Buscar por residente, departamento o folio..." />
+            <span>🔍</span>
+          </div>
+
+          <select>
+            <option>Todos los estados</option>
+            <option>Pagado</option>
+            <option>Pendiente</option>
+            <option>Vencido</option>
+          </select>
+
+          <select>
+            <option>Junio 2026</option>
+            <option>Mayo 2026</option>
+            <option>Abril 2026</option>
+          </select>
+
+          <button class="filter-btn">⚗️ Filtros</button>
+        </div>
+
+        <div class="payment-list">
+
+          <article class="payment-card">
+            <div class="payment-icon paid">✓</div>
+
+            <div class="payment-info">
+              <span class="folio">#P-2026-128</span>
+              <h3>Cuota de mantenimiento - Depto 304</h3>
+              <p>Juan Pérez · Torre A · Pago recibido por transferencia bancaria.</p>
+              <div class="payment-tags">
+                <span class="tag green">Mantenimiento</span>
+                <span class="method">🏦 Transferencia</span>
+              </div>
+            </div>
+
+            <div class="payment-meta">
+              <span class="status paid">Pagado</span>
+              <h4>$1,250.00</h4>
+              <p>12 Jun 2026 · 9:42 AM</p>
+            </div>
+
+            <button class="more-btn">•••</button>
+          </article>
+
+          <article class="payment-card">
+            <div class="payment-icon pending">⏳</div>
+
+            <div class="payment-info">
+              <span class="folio">#P-2026-127</span>
+              <h3>Cuota de mantenimiento - Depto 210</h3>
+              <p>María Gómez · Torre B · Pendiente antes del cierre mensual.</p>
+              <div class="payment-tags">
+                <span class="tag orange">Mantenimiento</span>
+                <span class="method">💳 Tarjeta pendiente</span>
+              </div>
+            </div>
+
+            <div class="payment-meta">
+              <span class="status pending">Pendiente</span>
+              <h4>$1,250.00</h4>
+              <p>Vence 20 Jun 2026</p>
+            </div>
+
+            <button class="more-btn">•••</button>
+          </article>
+
+          <article class="payment-card">
+            <div class="payment-icon overdue">!</div>
+
+            <div class="payment-info">
+              <span class="folio">#P-2026-126</span>
+              <h3>Fondo de reparación de elevador - Depto 118</h3>
+              <p>Carlos Rivas · Torre A · Aporte extraordinario vencido.</p>
+              <div class="payment-tags">
+                <span class="tag red">Extraordinario</span>
+                <span class="method">📌 Seguimiento requerido</span>
+              </div>
+            </div>
+
+            <div class="payment-meta">
+              <span class="status overdue">Vencido</span>
+              <h4>$850.00</h4>
+              <p>Venció 10 Jun 2026</p>
+            </div>
+
+            <button class="more-btn">•••</button>
+          </article>
+
+          <article class="payment-card">
+            <div class="payment-icon paid">✓</div>
+
+            <div class="payment-info">
+              <span class="folio">#P-2026-125</span>
+              <h3>Reserva de salón de eventos - Depto 502</h3>
+              <p>Lucía Torres · Torre C · Pago asociado a reserva confirmada.</p>
+              <div class="payment-tags">
+                <span class="tag blue">Reserva</span>
+                <span class="method">💵 Efectivo</span>
+              </div>
+            </div>
+
+            <div class="payment-meta">
+              <span class="status paid">Pagado</span>
+              <h4>$500.00</h4>
+              <p>08 Jun 2026 · 5:18 PM</p>
+            </div>
+
+            <button class="more-btn">•••</button>
+          </article>
+
+          <article class="payment-card">
+            <div class="payment-icon agreement">↻</div>
+
+            <div class="payment-info">
+              <span class="folio">#P-2026-124</span>
+              <h3>Convenio de pago - Depto 407</h3>
+              <p>Andrés Molina · Torre B · 2 de 4 parcialidades completadas.</p>
+              <div class="payment-tags">
+                <span class="tag purple">Convenio</span>
+                <span class="method">📆 Próximo abono: 25 Jun</span>
+              </div>
+            </div>
+
+            <div class="payment-meta">
+              <span class="status agreement">Convenio</span>
+              <h4>$3,600.00</h4>
+              <p>Saldo restante</p>
+            </div>
+
+            <button class="more-btn">•••</button>
+          </article>
+
+        </div>
+
+        <div class="pagination">
+          <p>Mostrando 1 a 5 de 128 pagos</p>
+
+          <div class="pages">
+            <button disabled>‹</button>
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>›</button>
+          </div>
+
+          <select>
+            <option>10 por página</option>
+            <option>20 por página</option>
+            <option>50 por página</option>
+          </select>
+        </div>
+
+      </section>
+
+      <form id="paymentForm" class="module-form">
+        <h3>Registrar pago</h3>
+
+        <label for="paymentResident">Residente</label>
+        <input type="text" id="paymentResident" name="paymentResident" placeholder="Ej. Juan Pérez" required />
+
+        <label for="paymentApartment">Departamento</label>
+        <input type="text" id="paymentApartment" name="paymentApartment" placeholder="Ej. Torre A - Depto 304" required />
+
+        <label for="paymentConcept">Concepto</label>
+        <select id="paymentConcept" name="paymentConcept" required>
+          <option value="">Selecciona concepto</option>
+          <option value="Cuota de mantenimiento">Cuota de mantenimiento</option>
+          <option value="Reserva">Reserva</option>
+          <option value="Pago extraordinario">Pago extraordinario</option>
+          <option value="Convenio">Convenio</option>
+        </select>
+
+        <label for="paymentAmount">Monto</label>
+        <input type="number" id="paymentAmount" name="paymentAmount" placeholder="0.00" min="0" step="0.01" required />
+
+        <label for="paymentMethod">Método de pago</label>
+        <select id="paymentMethod" name="paymentMethod" required>
+          <option value="">Selecciona método</option>
+          <option value="Transferencia">Transferencia</option>
+          <option value="Tarjeta">Tarjeta</option>
+          <option value="Efectivo">Efectivo</option>
+        </select>
+
+        <button type="submit">Guardar pago</button>
+      </form>
+    </main>
+
+    <!-- PANEL DERECHO -->
+    <aside class="right-panel">
+
+      <section class="side-widget">
+        <h3>Próximos vencimientos</h3>
+
+        <div class="due-list">
+          <div>
+            <span class="due-day">20</span>
+            <p>
+              <strong>Cuota mensual</strong>
+              <small>Junio 2026 · 18 pendientes</small>
+            </p>
+          </div>
+
+          <div>
+            <span class="due-day">25</span>
+            <p>
+              <strong>Convenios activos</strong>
+              <small>4 abonos programados</small>
+            </p>
+          </div>
+
+          <div>
+            <span class="due-day">30</span>
+            <p>
+              <strong>Cierre administrativo</strong>
+              <small>Generar reporte mensual</small>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="side-widget">
+        <h3>Métodos de pago</h3>
+
+        <div class="method-list">
+          <div>
+            <span>🏦</span>
+            Transferencia bancaria
+            <strong>64%</strong>
+          </div>
+
+          <div>
+            <span>💳</span>
+            Tarjeta
+            <strong>24%</strong>
+          </div>
+
+          <div>
+            <span>💵</span>
+            Efectivo
+            <strong>12%</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="side-widget">
+        <h3>Acciones rápidas</h3>
+
+        <div class="quick-actions">
+          <button>＋ Registrar pago</button>
+          <button>📄 Emitir cuota mensual</button>
+          <button>⬇️ Exportar reporte</button>
+          <button>📩 Enviar recordatorios</button>
+        </div>
+      </section>
+
+      <section class="side-widget info-widget">
+        <h3>Resumen financiero</h3>
+        <p>
+          La comunidad mantiene una recuperación mensual del 78%. Hay 7 pagos vencidos y 4 convenios activos en seguimiento.
+        </p>
+      </section>
+
+    </aside>
+
+  </div>
+  <script src="js/filters.js"></script>
+  <script src="js/pagos.js"></script>
+</body>
+</html>

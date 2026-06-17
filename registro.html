@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>UrbanConnect | Registro</title>
+
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/registro.css" />
+</head>
+
+<body>
+  <main class="page">
+
+    <div class="cloud left"></div>
+    <div class="cloud right"></div>
+
+    <div class="route-line one"></div>
+    <div class="route-line two"></div>
+
+    <div class="float-card users">
+      <img src="img/icon-users.png" alt="Usuarios" />
+    </div>
+
+    <div class="float-card shield">
+      <img src="img/icon-shield.png" alt="Seguridad" />
+    </div>
+
+    <div class="float-card chat">
+      <img src="img/icon-chat.png" alt="Mensajes" />
+    </div>
+
+    <section class="register-card">
+      <div class="logo">
+        <img src="img/logo-urbanconnect.png" alt="Logo urbanConnect" class="logo-img" />
+
+        <div class="brand">
+          urban<span>Connect</span>
+        </div>
+      </div>
+
+      <div class="heading">
+        <h1>Crear cuenta</h1>
+        <p>Registra tus datos para solicitar acceso a la comunidad.</p>
+      </div>
+
+      <form id="registerForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="name">Nombre completo</label>
+            <div class="input-box">
+              <span class="input-symbol">👤</span>
+              <input type="text" id="name" placeholder="Ej. María Gómez" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="document">Documento</label>
+            <div class="input-box">
+              <span class="input-symbol">🪪</span>
+              <input type="text" id="document" placeholder="DNI / Cédula" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <div class="input-box">
+              <span class="input-symbol">✉️</span>
+              <input type="email" id="email" placeholder="correo@ejemplo.com" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Teléfono</label>
+            <div class="input-box">
+              <span class="input-symbol">📞</span>
+              <input type="tel" id="phone" placeholder="+51 999 999 999" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="tower">Torre</label>
+            <div class="input-box">
+              <span class="input-symbol">🏢</span>
+              <select id="tower" required>
+                <option value="">Selecciona torre</option>
+                <option>Torre A</option>
+                <option>Torre B</option>
+                <option>Torre C</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="apartment">Departamento</label>
+            <div class="input-box">
+              <span class="input-symbol">🏠</span>
+              <input type="text" id="apartment" placeholder="Ej. 304" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="role">Tipo de residente</label>
+            <div class="input-box">
+              <span class="input-symbol">🔑</span>
+              <select id="role" required>
+                <option value="">Selecciona tipo</option>
+                <option>Propietario</option>
+                <option>Inquilino</option>
+                <option>Familiar autorizado</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Contraseña</label>
+            <div class="input-box">
+              <span class="input-symbol">🔒</span>
+              <input type="password" id="password" placeholder="Crea una contraseña" required />
+            </div>
+          </div>
+        </div>
+
+        <label class="terms">
+          <input type="checkbox" required />
+          Acepto que la administración valide mis datos antes de activar la cuenta.
+        </label>
+
+        <button type="submit" class="btn-primary">
+          Solicitar registro <span>→</span>
+        </button>
+
+        <p class="login-link">
+          ¿Ya tienes cuenta?
+          <a href="Login.html">Inicia sesión</a>
+        </p>
+      </form>
+    </section>
+
+    <div class="secure">
+      <img src="img/icon-shield.png" alt="Seguridad" />
+
+      <div>
+        <strong>Registro protegido</strong>
+        Tu solicitud será revisada por administración
+      </div>
+    </div>
+
+    <img src="img/city-background.png" alt="Ciudad urbanConnect" class="city-img" />
+
+  </main>
+
+  <script src="js/registro.js"></script>
+</body>
+</html>

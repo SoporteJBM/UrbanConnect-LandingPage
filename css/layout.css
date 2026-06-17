@@ -1,0 +1,90 @@
+/* Shared dashboard layout and form styles */
+
+.module-form {
+  margin-top: 18px;
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: 18px;
+  box-shadow: var(--sombra);
+  padding: 22px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.module-form h3 {
+  grid-column: 1 / -1;
+  font-size: 17px;
+  font-weight: 850;
+  margin-bottom: 4px;
+}
+
+.module-form label {
+  font-size: 13px;
+  color: #1f2d46;
+  font-weight: 750;
+  margin-bottom: -8px;
+}
+
+.module-form input,
+.module-form select,
+.module-form textarea {
+  width: 100%;
+  border: 1px solid #cfdbea;
+  border-radius: 10px;
+  padding: 0 14px;
+  outline: none;
+  color: var(--azul-oscuro);
+  background: var(--blanco);
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.module-form input,
+.module-form select {
+  height: 42px;
+}
+
+.module-form textarea {
+  min-height: 96px;
+  padding-top: 12px;
+  resize: vertical;
+}
+
+.module-form input:focus,
+.module-form select:focus,
+.module-form textarea:focus {
+  border-color: var(--verde);
+  box-shadow: 0 0 0 4px rgba(24, 191, 114, 0.12);
+}
+
+.module-form button {
+  grid-column: 1 / -1;
+  justify-self: end;
+  height: 42px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--verde), var(--verde-oscuro));
+  color: var(--blanco);
+  font-weight: 800;
+  box-shadow: 0 10px 24px rgba(24, 191, 114, 0.25);
+}
+
+.empty-state {
+  padding: 28px 22px;
+  color: var(--gris);
+  font-size: 14px;
+  text-align: center;
+  border-top: 1px solid var(--borde);
+}
+
+@media (max-width: 700px) {
+  .module-form {
+    grid-template-columns: 1fr;
+  }
+
+  .module-form button {
+    width: 100%;
+  }
+}

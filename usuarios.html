@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>urbanConnect | Usuarios</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/usuarios.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="logo"><img src="img/logo-urbanconnect.png" alt="Logo urbanConnect" /><h2>urban<span>Connect</span></h2></div>
+      <nav class="menu">
+        <a href="index.html" class="menu-item"><span>🏠</span>Inicio</a>
+        <a href="comunicados.html" class="menu-item"><span>📢</span>Comunicados</a>
+        <a href="reportes.html" class="menu-item"><span>📊</span>Reportes</a>
+        <a href="servicios.html" class="menu-item"><span>🛠️</span>Servicios</a>
+        <a href="encuestas.html" class="menu-item"><span>📝</span>Encuestas</a>
+        <a href="reservas.html" class="menu-item"><span>📅</span>Reservas</a>
+        <a href="pagos.html" class="menu-item"><span>💳</span>Pagos</a>
+        <a href="documentos.html" class="menu-item"><span>📁</span>Documentos</a>
+        <a href="usuarios.html" class="menu-item active"><span>👥</span>Usuarios</a>
+        <a href="configuracion.html" class="menu-item"><span>⚙️</span>Configuración</a>
+      </nav>
+      <div class="sidebar-card"><div class="shield-box">🛡️</div><h3>Plataforma segura para tu comunidad</h3><p>Tus datos están protegidos</p><a href="#">Más información →</a></div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar"><div><h1>Usuarios</h1><p>Administra residentes, propietarios, roles y accesos del edificio.</p></div><div class="top-actions"><button class="icon-btn">🔍</button><button class="icon-btn notification">🔔<span>3</span></button><div class="profile"><div class="avatar">JP</div><div><h4>Juan Pérez</h4><p>Administrador</p></div><span class="arrow">⌄</span></div></div></header>
+      <section class="stats-row">
+        <article class="stat-card"><div class="stat-icon green">👥</div><div><p>Usuarios activos</p><h2>128</h2><span>De 200 disponibles</span></div></article>
+        <article class="stat-card"><div class="stat-icon blue">🏠</div><div><p>Residentes</p><h2>104</h2><span>Registrados</span></div></article>
+        <article class="stat-card"><div class="stat-icon orange">⏳</div><div><p>Pendientes</p><h2>9</h2><span>Por aprobar</span></div></article>
+        <article class="stat-card"><div class="stat-icon red">🔒</div><div><p>Bloqueados</p><h2>3</h2><span>Revisión</span></div></article>
+      </section>
+      <section class="payments-panel">
+        <div class="tabs-header"><div class="tabs"><button class="tab active">Todos</button><button class="tab">Residentes</button><button class="tab">Administradores</button><button class="tab">Pendientes</button></div><button class="create-btn"><span>＋</span>Nuevo usuario</button></div>
+        <div class="filters"><div class="search-box"><input type="text" placeholder="Buscar por nombre, correo o departamento..." /><span>🔍</span></div><select><option>Todos los roles</option><option>Administrador</option><option>Residente</option><option>Propietario</option></select><select><option>Todos los estados</option><option>Activo</option><option>Pendiente</option><option>Bloqueado</option></select><button class="filter-btn">⚗️ Filtros</button></div>
+        <div class="payment-list">
+          <article class="payment-card"><div class="payment-icon paid">JP</div><div class="payment-info"><span class="folio">USR-001</span><h3>Juan Pérez</h3><p>juan.perez@email.com · Depto 304 · Administrador.</p><div class="payment-tags"><span class="tag green">Activo</span><span class="method">🛡️ Administrador</span></div></div><div class="payment-meta"><span class="status paid">Activo</span><h4>Torre A</h4><p>Último acceso: hoy</p></div><button class="more-btn">•••</button></article>
+          <article class="payment-card"><div class="payment-icon pending">MG</div><div class="payment-info"><span class="folio">USR-042</span><h3>María Gómez</h3><p>maria.gomez@email.com · Depto 210 · Residente.</p><div class="payment-tags"><span class="tag orange">Pendiente</span><span class="method">📩 Invitación enviada</span></div></div><div class="payment-meta"><span class="status pending">Pendiente</span><h4>Torre B</h4><p>Registro nuevo</p></div><button class="more-btn">•••</button></article>
+          <article class="payment-card"><div class="payment-icon agreement">CR</div><div class="payment-info"><span class="folio">USR-087</span><h3>Carlos Rivas</h3><p>carlos.rivas@email.com · Depto 118 · Propietario.</p><div class="payment-tags"><span class="tag blue">Propietario</span><span class="method">🔑 Acceso completo</span></div></div><div class="payment-meta"><span class="status agreement">Activo</span><h4>Torre A</h4><p>Último acceso: ayer</p></div><button class="more-btn">•••</button></article>
+        </div>
+      </section>
+
+      <form id="userForm" class="module-form">
+        <h3>Nuevo usuario</h3>
+
+        <label for="userName">Nombre completo</label>
+        <input type="text" id="userName" name="userName" placeholder="Ej. María Gómez" required />
+
+        <label for="userEmail">Correo electrónico</label>
+        <input type="email" id="userEmail" name="userEmail" placeholder="correo@ejemplo.com" required />
+
+        <label for="userApartment">Departamento</label>
+        <input type="text" id="userApartment" name="userApartment" placeholder="Ej. Torre B - Depto 210" required />
+
+        <label for="userRole">Rol</label>
+        <select id="userRole" name="userRole" required>
+          <option value="">Selecciona rol</option>
+          <option value="Administrador">Administrador</option>
+          <option value="Residente">Residente</option>
+          <option value="Propietario">Propietario</option>
+        </select>
+
+        <label for="userStatus">Estado</label>
+        <select id="userStatus" name="userStatus" required>
+          <option value="">Selecciona estado</option>
+          <option value="Activo">Activo</option>
+          <option value="Pendiente">Pendiente</option>
+          <option value="Bloqueado">Bloqueado</option>
+        </select>
+
+        <button type="submit">Guardar usuario</button>
+      </form>
+    </main>
+    <aside class="right-panel"><section class="side-widget"><h3>Roles</h3><div class="method-list"><div><span>🛡️</span>Administradores<strong>6</strong></div><div><span>🏠</span>Residentes<strong>104</strong></div><div><span>🔑</span>Propietarios<strong>18</strong></div></div></section><section class="side-widget"><h3>Acciones rápidas</h3><div class="quick-actions"><button>＋ Crear usuario</button><button>📩 Enviar invitación</button><button>⬇️ Exportar usuarios</button></div></section></aside>
+  </div>
+  <script src="js/filters.js"></script>
+  <script src="js/usuarios.js"></script>
+</body>
+</html>

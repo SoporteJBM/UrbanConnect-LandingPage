@@ -1,0 +1,388 @@
+body {
+  min-height: 100vh;
+  color: var(--azul);
+  background:
+    radial-gradient(circle at top left, rgba(24, 191, 114, 0.10), transparent 34%),
+    radial-gradient(circle at top right, rgba(7, 47, 99, 0.07), transparent 30%),
+    linear-gradient(180deg, #ffffff 0%, #f5faff 100%);
+  overflow-x: hidden;
+}
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 42px 20px 110px;
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  width: 150px;
+  height: 44px;
+  background: #edf4fe;
+  border-radius: 50px;
+  opacity: 0.92;
+  z-index: 0;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: #edf4fe;
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 68px;
+  height: 68px;
+  left: 25px;
+  top: -34px;
+}
+
+.cloud::after {
+  width: 52px;
+  height: 52px;
+  right: 24px;
+  top: -23px;
+}
+
+.cloud.left {
+  top: 14%;
+  left: 7%;
+}
+
+.cloud.right {
+  top: 12%;
+  right: 9%;
+  transform: scale(0.82);
+}
+
+.route-line {
+  position: absolute;
+  width: 430px;
+  height: 190px;
+  border-top: 2px dashed rgba(24, 191, 114, 0.24);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.route-line.one {
+  left: 8%;
+  top: 38%;
+  transform: rotate(-18deg);
+}
+
+.route-line.two {
+  right: 6%;
+  top: 30%;
+  transform: rotate(15deg);
+}
+
+.float-card {
+  position: absolute;
+  width: 66px;
+  height: 66px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(217, 226, 238, 0.8);
+  box-shadow: 0 12px 32px rgba(7, 47, 99, 0.12);
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+
+.float-card img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.float-card.users {
+  left: 11%;
+  top: 53%;
+}
+
+.float-card.shield {
+  right: 12%;
+  top: 32%;
+}
+
+.float-card.chat {
+  right: 7%;
+  bottom: 27%;
+}
+
+.register-card {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  max-width: 760px;
+  padding: 38px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(217, 226, 238, 0.95);
+  box-shadow: var(--sombra-fuerte);
+  backdrop-filter: blur(18px);
+  animation: fadeUp 0.65s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.logo-img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+}
+
+.brand {
+  font-size: 31px;
+  font-weight: 800;
+  letter-spacing: -0.9px;
+  color: var(--azul-oscuro);
+}
+
+.brand span {
+  color: var(--verde);
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.heading h1 {
+  font-size: 34px;
+  line-height: 1.15;
+  color: var(--azul-oscuro);
+  letter-spacing: -0.7px;
+  margin-bottom: 10px;
+}
+
+.heading p {
+  color: var(--gris);
+  font-size: 15px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.form-group {
+  margin-bottom: 2px;
+}
+
+label {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 14px;
+  font-weight: 750;
+  color: var(--azul-oscuro);
+}
+
+.input-box {
+  position: relative;
+}
+
+.input-box input,
+.input-box select {
+  width: 100%;
+  height: 54px;
+  padding: 0 16px 0 48px;
+  border: 1.5px solid var(--borde);
+  border-radius: 12px;
+  background: var(--blanco);
+  color: var(--azul);
+  font-size: 15px;
+  outline: none;
+  transition: 0.25s ease;
+}
+
+.input-box input::placeholder {
+  color: #aab5c6;
+}
+
+.input-box input:focus,
+.input-box select:focus {
+  border-color: var(--verde);
+  box-shadow: 0 0 0 4px rgba(24, 191, 114, 0.13);
+}
+
+.input-symbol {
+  position: absolute;
+  left: 17px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  opacity: 0.62;
+  z-index: 2;
+}
+
+.terms {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #40516a;
+  line-height: 1.45;
+  margin: 22px 0;
+}
+
+.terms input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--verde);
+  flex-shrink: 0;
+}
+
+.btn-primary {
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--verde), var(--verde-oscuro));
+  color: var(--blanco);
+  font-size: 16px;
+  font-weight: 800;
+  box-shadow: 0 12px 28px rgba(24, 191, 114, 0.28);
+  transition: 0.25s ease;
+}
+
+.btn-primary span {
+  margin-left: 14px;
+  font-size: 24px;
+  line-height: 0;
+  vertical-align: -2px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 17px 36px rgba(24, 191, 114, 0.35);
+}
+
+.login-link {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 15px;
+  color: var(--gris);
+}
+
+.login-link a {
+  color: var(--verde);
+  margin-left: 6px;
+  font-weight: 750;
+}
+
+.secure {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #718099;
+  font-size: 14px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.secure img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.secure strong {
+  display: block;
+  color: #6a7b94;
+  font-weight: 750;
+}
+
+.city-img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 285px;
+  object-fit: cover;
+  object-position: bottom center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .float-card,
+  .route-line,
+  .cloud {
+    display: none;
+  }
+
+  .page {
+    padding-bottom: 28px;
+  }
+
+  .secure {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 700px) {
+  .register-card {
+    padding: 30px 22px;
+    border-radius: 22px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brand {
+    font-size: 27px;
+  }
+
+  .heading h1 {
+    font-size: 28px;
+  }
+
+  .city-img {
+    opacity: 0.55;
+  }
+
+  .secure {
+    font-size: 12px;
+    white-space: normal;
+    max-width: 330px;
+  }
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>urbanConnect | Servicios</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/servicios.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="img/logo-urbanconnect.png" alt="Logo urbanConnect" />
+        <h2>urban<span>Connect</span></h2>
+      </div>
+      <nav class="menu">
+        <a href="index.html" class="menu-item"><span>🏠</span>Inicio</a>
+        <a href="comunicados.html" class="menu-item"><span>📢</span>Comunicados</a>
+        <a href="reportes.html" class="menu-item"><span>📊</span>Reportes</a>
+        <a href="servicios.html" class="menu-item active"><span>🛠️</span>Servicios</a>
+        <a href="encuestas.html" class="menu-item"><span>📝</span>Encuestas</a>
+        <a href="reservas.html" class="menu-item"><span>📅</span>Reservas</a>
+        <a href="pagos.html" class="menu-item"><span>💳</span>Pagos</a>
+        <a href="documentos.html" class="menu-item"><span>📁</span>Documentos</a>
+        <a href="usuarios.html" class="menu-item"><span>👥</span>Usuarios</a>
+        <a href="configuracion.html" class="menu-item"><span>⚙️</span>Configuración</a>
+      </nav>
+      <div class="sidebar-card">
+        <div class="shield-box">🛡️</div>
+        <h3>Plataforma segura para tu comunidad</h3>
+        <p>Tus datos están protegidos</p>
+        <a href="#">Más información →</a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <h1>Servicios</h1>
+          <p>Administra solicitudes y proveedores de mantenimiento del edificio.</p>
+        </div>
+        <div class="top-actions">
+          <button class="icon-btn">🔍</button>
+          <button class="icon-btn notification">🔔<span>3</span></button>
+          <div class="profile"><div class="avatar">JP</div><div><h4>Juan Pérez</h4><p>Administrador</p></div><span class="arrow">⌄</span></div>
+        </div>
+      </header>
+
+      <section class="stats-row">
+        <article class="stat-card"><div class="stat-icon blue">🛠️</div><div><p>Servicios activos</p><h2>12</h2><span>En seguimiento</span></div></article>
+        <article class="stat-card"><div class="stat-icon orange">⏳</div><div><p>Pendientes</p><h2>6</h2><span>Por asignar</span></div></article>
+        <article class="stat-card"><div class="stat-icon green">✓</div><div><p>Completados</p><h2>34</h2><span>Este mes</span></div></article>
+        <article class="stat-card"><div class="stat-icon red">⚠️</div><div><p>Urgentes</p><h2>3</h2><span>Alta prioridad</span></div></article>
+      </section>
+
+      <section class="payments-panel">
+        <div class="tabs-header">
+          <div class="tabs">
+            <button class="tab active">Todos</button><button class="tab">Pendientes</button><button class="tab">Asignados</button><button class="tab">Completados</button>
+          </div>
+          <button class="create-btn"><span>＋</span>Nuevo servicio</button>
+        </div>
+        <div class="filters">
+          <div class="search-box"><input type="text" placeholder="Buscar servicio o proveedor..." /><span>🔍</span></div>
+          <select><option>Todas las categorías</option><option>Plomería</option><option>Electricidad</option><option>Limpieza</option></select>
+          <select><option>Más recientes</option><option>Mayor prioridad</option></select>
+          <button class="filter-btn">⚗️ Filtros</button>
+        </div>
+        <div class="payment-list">
+          <article class="payment-card"><div class="payment-icon overdue">!</div><div class="payment-info"><span class="folio">#S-2026-018</span><h3>Revisión de bomba de agua</h3><p>Proveedor: HidroService · Cuarto de máquinas · Atención urgente.</p><div class="payment-tags"><span class="tag red">Plomería</span><span class="method">📌 Hoy</span></div></div><div class="payment-meta"><span class="status overdue">Urgente</span><h4>$1,800</h4><p>Estimado</p></div><button class="more-btn">•••</button></article>
+          <article class="payment-card"><div class="payment-icon pending">⏳</div><div class="payment-info"><span class="folio">#S-2026-017</span><h3>Cambio de luminarias</h3><p>Proveedor: ElectroMax · Estacionamiento nivel 2.</p><div class="payment-tags"><span class="tag orange">Electricidad</span><span class="method">🧾 Cotización enviada</span></div></div><div class="payment-meta"><span class="status pending">Pendiente</span><h4>$950</h4><p>Vence 19 Jun</p></div><button class="more-btn">•••</button></article>
+          <article class="payment-card"><div class="payment-icon paid">✓</div><div class="payment-info"><span class="folio">#S-2026-016</span><h3>Limpieza profunda de lobby</h3><p>Proveedor: CleanPro · Torre A · Servicio terminado.</p><div class="payment-tags"><span class="tag green">Limpieza</span><span class="method">✅ Validado</span></div></div><div class="payment-meta"><span class="status paid">Completado</span><h4>$620</h4><p>14 Jun 2026</p></div><button class="more-btn">•••</button></article>
+        </div>
+      </section>
+
+      <form id="serviceForm" class="module-form">
+        <h3>Nuevo servicio</h3>
+
+        <label for="serviceTitle">Servicio</label>
+        <input type="text" id="serviceTitle" name="serviceTitle" placeholder="Ej. Revisión de bomba de agua" required />
+
+        <label for="serviceCategory">Categoría</label>
+        <select id="serviceCategory" name="serviceCategory" required>
+          <option value="">Selecciona categoría</option>
+          <option value="Plomería">Plomería</option>
+          <option value="Electricidad">Electricidad</option>
+          <option value="Limpieza">Limpieza</option>
+          <option value="Seguridad">Seguridad</option>
+        </select>
+
+        <label for="serviceProvider">Proveedor</label>
+        <input type="text" id="serviceProvider" name="serviceProvider" placeholder="Ej. HidroService" required />
+
+        <label for="servicePriority">Prioridad</label>
+        <select id="servicePriority" name="servicePriority" required>
+          <option value="">Selecciona prioridad</option>
+          <option value="Alta">Alta</option>
+          <option value="Media">Media</option>
+          <option value="Baja">Baja</option>
+        </select>
+
+        <label for="serviceDescription">Descripción</label>
+        <textarea id="serviceDescription" name="serviceDescription" rows="4" placeholder="Describe el servicio solicitado..." required></textarea>
+
+        <button type="submit">Guardar servicio</button>
+      </form>
+    </main>
+
+    <aside class="right-panel">
+      <section class="side-widget"><h3>Proveedores frecuentes</h3><div class="method-list"><div><span>💧</span>HidroService<strong>8</strong></div><div><span>💡</span>ElectroMax<strong>6</strong></div><div><span>🧽</span>CleanPro<strong>5</strong></div></div></section>
+      <section class="side-widget"><h3>Acciones rápidas</h3><div class="quick-actions"><button>＋ Crear solicitud</button><button>📞 Contactar proveedor</button><button>⬇️ Exportar servicios</button></div></section>
+    </aside>
+  </div>
+  <script src="js/filters.js"></script>
+  <script src="js/servicios.js"></script>
+</body>
+</html>

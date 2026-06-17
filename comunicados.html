@@ -7,6 +7,7 @@
   <title>UrbanConnect | Comunicados</title>
 
   <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/layout.css" />
   <link rel="stylesheet" href="css/comunicados.css" />
 </head>
 
@@ -21,7 +22,7 @@
       </div>
 
       <nav class="menu">
-        <a href="dashboard.html" class="menu-item">
+        <a href="index.html" class="menu-item">
           <span>🏠</span>
           Inicio
         </a>
@@ -31,37 +32,42 @@
           Comunicados
         </a>
 
-        <a href="#" class="menu-item">
+        <a href="reportes.html" class="menu-item">
           <span>📊</span>
           Reportes
         </a>
 
-        <a href="#" class="menu-item">
+        <a href="servicios.html" class="menu-item">
           <span>🛠️</span>
           Servicios
         </a>
 
-        <a href="#" class="menu-item">
+        <a href="encuestas.html" class="menu-item">
           <span>📝</span>
           Encuestas
         </a>
 
-        <a href="#" class="menu-item">
+        <a href="reservas.html" class="menu-item">
           <span>📅</span>
           Reservas
         </a>
 
-        <a href="#" class="menu-item">
+        <a href="pagos.html" class="menu-item">
+          <span>💳</span>
+          Pagos
+        </a>
+
+        <a href="documentos.html" class="menu-item">
           <span>📁</span>
           Documentos
         </a>
 
-        <a href="#" class="menu-item">
+        <a href="usuarios.html" class="menu-item">
           <span>👥</span>
           Usuarios
         </a>
 
-        <a href="#" class="menu-item">
+        <a href="configuracion.html" class="menu-item">
           <span>⚙️</span>
           Configuración
         </a>
@@ -248,6 +254,31 @@
         </div>
       </section>
 
+      <form id="announcementForm" class="module-form">
+        <h3>Crear comunicado</h3>
+
+        <label for="announcementTitle">Título</label>
+        <input type="text" id="announcementTitle" name="announcementTitle" placeholder="Ej. Mantenimiento en el elevador" required />
+
+        <label for="announcementCategory">Categoría</label>
+        <select id="announcementCategory" name="announcementCategory" required>
+          <option value="">Selecciona una categoría</option>
+          <option value="Mantenimiento">Mantenimiento</option>
+          <option value="Asamblea">Asamblea</option>
+          <option value="Servicios">Servicios</option>
+          <option value="Convivencia">Convivencia</option>
+          <option value="General">General</option>
+        </select>
+
+        <label for="announcementDate">Fecha de publicación</label>
+        <input type="date" id="announcementDate" name="announcementDate" required />
+
+        <label for="announcementContent">Contenido</label>
+        <textarea id="announcementContent" name="announcementContent" rows="4" placeholder="Escribe el comunicado..." required></textarea>
+
+        <button type="submit">Guardar comunicado</button>
+      </form>
+
     </main>
 
     <!-- PANEL DERECHO -->
@@ -331,5 +362,7 @@
     </aside>
 
   </div>
+  <script src="js/filters.js"></script>
+  <script src="js/comunicados.js"></script>
 </body>
 </html>
