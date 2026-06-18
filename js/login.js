@@ -1,5 +1,4 @@
-// Crear usuario por defecto en localStorage
-const usuariosDefault = [
+var usuariosDefault = [
   {
     login: "admin",
     password: "admin123",
@@ -7,35 +6,44 @@ const usuariosDefault = [
   }
 ];
 
-if (!localStorage.getItem("usuarios")) {
+if (localStorage.getItem("usuarios") === null) {
   localStorage.setItem("usuarios", JSON.stringify(usuariosDefault));
 }
 
-// Mostrar / ocultar contraseña
 function togglePassword() {
-  const input = document.getElementById("password");
-  input.type = input.type === "password" ? "text" : "password";
+  var inputPassword = document.getElementById("password");
+
+  if (inputPassword.type === "password") {
+    inputPassword.type = "text";
+  } else {
+    inputPassword.type = "password";
+  }
 }
 
-// Login
-const loginForm = document.getElementById("loginForm");
+var formularioLogin = document.getElementById("loginForm");
 
-loginForm.addEventListener("submit", function (event) {
-  event.preventDefault();
+if (formularioLogin !== null) {
+  formularioLogin.addEventListener("submit", iniciarSesion);
+}
 
-  const login = document.getElementById("login").value.trim();
-  const password = document.getElementById("password").value.trim();
+function iniciarSesion(evento) {
+  evento.preventDefault();
 
-  const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+  var login = document.getElementById("login").value.trim();
+  var password = document.getElementById("password").value.trim();
+  var usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+  var usuarioEncontrado = null;
 
-  const usuarioEncontrado = usuarios.find(
-    usuario => usuario.login === login && usuario.password === password
-  );
+  usuarios.forEach(function (usuario) {
+    if (usuario.login === login && usuario.password === password) {
+      usuarioEncontrado = usuario;
+    }
+  });
 
-  if (usuarioEncontrado) {
+  if (usuarioEncontrado !== null) {
     localStorage.setItem("usuarioActivo", JSON.stringify(usuarioEncontrado));
-    window.location.href = "index.html";
+    window.location.href = "dashboard.html";
   } else {
-    alert("Usuario o contraseña incorrectos");
+    alert("Usuario o contrasena incorrectos");
   }
-});
+}

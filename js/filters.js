@@ -1,223 +1,147 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const configs = [
-    {
-      panel: ".reports-panel",
-      list: ".report-list",
-      card: ".report-card",
-      searchable: [".report-info", ".report-meta"],
-      statusSelector: ".status",
-      categorySelector: ".tag"
-    },
-    {
-      panel: ".announcements-panel",
-      list: ".announcement-list",
-      card: ".announcement-card",
-      searchable: [".announcement-info", ".announcement-meta"],
-      statusSelector: ".status",
-      categorySelector: ".category"
-    },
-    {
-      panel: ".payments-panel",
-      list: ".payment-list",
-      card: ".payment-card",
-      searchable: [".payment-info", ".payment-meta"],
-      statusSelector: ".status",
-      categorySelector: ".tag"
-    }
-  ];
+document.addEventListener("DOMContentLoaded", iniciarFiltros);
 
-  configs.forEach(setupFilters);
-});
+function iniciarFiltros() {
+  prepararPanel(".reports-panel", ".report-list", ".report-card");
+  prepararPanel(".announcements-panel", ".announcement-list", ".announcement-card");
+  prepararPanel(".payments-panel", ".payment-list", ".payment-card");
+}
 
-function setupFilters(config) {
-  const panel = document.querySelector(config.panel);
-  const list = document.querySelector(config.list);
+function prepararPanel(selectorPanel, selectorLista, selectorTarjeta) {
+  var panel = document.querySelector(selectorPanel);
+  var lista = document.querySelector(selectorLista);
 
-  if (!panel || !list) {
+  if (panel === null || lista === null) {
     return;
   }
 
-  const cards = Array.from(list.querySelectorAll(config.card));
-  const tabs = Array.from(panel.querySelectorAll(".tab"));
-  const searchInput = panel.querySelector(".search-box input");
-  const selects = Array.from(panel.querySelectorAll(".filters select"));
-  const categorySelect = selects[0];
-  const stateSelect = selects.find((select) =>
-    Array.from(select.options).some((option) => isStateFilter(option.textContent))
-  );
+  var pestanas = panel.querySelectorAll(".tab");
+  var buscador = panel.querySelector(".search-box input");
+  var selectores = panel.querySelectorAll(".filters select");
+  var mensajeVacio = lista.querySelector(".empty-state");
 
-  let emptyState = list.querySelector(".empty-state");
-  if (!emptyState) {
-    emptyState = document.createElement("div");
-    emptyState.className = "empty-state";
-    emptyState.textContent = "No hay resultados con los filtros seleccionados.";
-    emptyState.hidden = true;
-    list.appendChild(emptyState);
+  function actualizarFiltros() {
+    aplicarFiltros(panel, lista, selectorTarjeta, mensajeVacio);
   }
 
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      tabs.forEach((item) => item.classList.remove("active"));
-      tab.classList.add("active");
-      applyFilters();
+  if (mensajeVacio === null) {
+    mensajeVacio = document.createElement("div");
+    mensajeVacio.className = "empty-state";
+    mensajeVacio.textContent = "No hay resultados con los filtros seleccionados.";
+    mensajeVacio.hidden = true;
+    lista.appendChild(mensajeVacio);
+  }
+
+  pestanas.forEach(function (pestana) {
+    pestana.addEventListener("click", function () {
+      quitarPestanaActiva(pestanas);
+      this.classList.add("active");
+      actualizarFiltros();
     });
   });
 
-  if (searchInput) {
-    searchInput.addEventListener("input", applyFilters);
+  if (buscador !== null) {
+    buscador.addEventListener("input", actualizarFiltros);
   }
 
-  selects.forEach((select) => {
-    select.addEventListener("change", applyFilters);
+  selectores.forEach(function (selector) {
+    selector.addEventListener("change", actualizarFiltros);
   });
 
-  applyFilters();
+  actualizarFiltros();
+}
 
-  function applyFilters() {
-    const activeTab = normalize(panel.querySelector(".tab.active")?.textContent || "todos");
-    const searchTerm = normalize(searchInput?.value || "");
-    const category = normalize(categorySelect?.value || "");
-    const state = normalize(stateSelect?.value || "");
-    let visibleCount = 0;
+function quitarPestanaActiva(pestanas) {
+  pestanas.forEach(function (pestana) {
+    pestana.classList.remove("active");
+  });
+}
 
-    cards.forEach((card) => {
-      const text = normalize(getCardText(card, config.searchable));
-      const cardStatus = normalize(card.querySelector(config.statusSelector)?.textContent || "");
-      const cardCategory = normalize(card.querySelector(config.categorySelector)?.textContent || "");
+function aplicarFiltros(panel, lista, selectorTarjeta, mensajeVacio) {
+  var tarjetas = lista.querySelectorAll(selectorTarjeta);
+  var pestanaActiva = panel.querySelector(".tab.active");
+  var buscador = panel.querySelector(".search-box input");
+  var selectores = panel.querySelectorAll(".filters select");
+  var textoPestana = "todos";
+  var textoBusqueda = "";
+  var visibles = 0;
 
-      const matchesSearch = !searchTerm || text.includes(searchTerm);
-      const matchesTab = matchesTabFilter(activeTab, cardStatus, text);
-      const matchesCategory = matchesSelectFilter(category, cardCategory, text);
-      const matchesState = matchesSelectFilter(state, cardStatus, text);
-      const isVisible = matchesSearch && matchesTab && matchesCategory && matchesState;
-
-      card.hidden = !isVisible;
-      if (isVisible) {
-        visibleCount += 1;
-      }
-    });
-
-    emptyState.hidden = visibleCount !== 0;
+  if (pestanaActiva !== null) {
+    textoPestana = normalizarTexto(pestanaActiva.textContent);
   }
+
+  if (buscador !== null) {
+    textoBusqueda = normalizarTexto(buscador.value);
+  }
+
+  tarjetas.forEach(function (tarjeta) {
+    var textoTarjeta = normalizarTexto(tarjeta.textContent);
+    var coincideBusqueda = textoBusqueda === "" || textoTarjeta.indexOf(textoBusqueda) !== -1;
+    var coincidePestana = coincideConPestana(textoPestana, textoTarjeta);
+    var coincideSelectores = coincideConSelectores(selectores, textoTarjeta);
+    var mostrar = coincideBusqueda && coincidePestana && coincideSelectores;
+
+    tarjeta.hidden = !mostrar;
+
+    if (mostrar) {
+      visibles = visibles + 1;
+    }
+  });
+
+  mensajeVacio.hidden = visibles > 0;
 }
 
-function getCardText(card, selectors) {
-  const selectedText = selectors
-    .map((selector) => card.querySelector(selector)?.textContent || "")
-    .join(" ");
+function coincideConSelectores(selectores, textoTarjeta) {
+  var coincide = true;
 
-  return selectedText || card.textContent;
+  selectores.forEach(function (selector) {
+    var valor = normalizarTexto(selector.value);
+    var primeraOpcion = normalizarTexto(selector.options[0].textContent);
+
+    var esFiltro = primeraOpcion.indexOf("todos") === 0 || primeraOpcion.indexOf("todas") === 0;
+
+    if (!esFiltro || esOpcionGeneral(valor)) {
+      return;
+    }
+
+    if (textoTarjeta.indexOf(valor) === -1) {
+      coincide = false;
+    }
+  });
+
+  return coincide;
 }
 
-function matchesTabFilter(tab, status, text) {
-  if (!tab || ["todos", "todas"].includes(tab)) {
+function esOpcionGeneral(valor) {
+  return valor === "" ||
+    valor.indexOf("todos") === 0 ||
+    valor.indexOf("todas") === 0;
+}
+
+function coincideConPestana(pestana, textoTarjeta) {
+  if (pestana === "todos" || pestana === "todas") {
     return true;
   }
 
-  if (tab === "publicados") {
-    return status.includes("publicado");
+  var palabraBuscada = pestana;
+  var ultimasCuatro = pestana.slice(-4);
+
+  if (ultimasCuatro === "ores") {
+    palabraBuscada = pestana.slice(0, -2);
+  } else if (pestana.slice(-1) === "s") {
+    palabraBuscada = pestana.slice(0, -1);
   }
 
-  if (tab === "borradores") {
-    return status.includes("borrador") || text.includes("borrador");
-  }
-
-  if (tab === "programados") {
-    return status.includes("programado") || text.includes("programado");
-  }
-
-  if (tab === "pagados") {
-    return status.includes("pagado");
-  }
-
-  if (tab === "pendientes") {
-    return status.includes("pendiente");
-  }
-
-  if (tab === "vencidos") {
-    return status.includes("vencido");
-  }
-
-  if (tab === "abiertos") {
-    return status.includes("abierto");
-  }
-
-  if (tab === "resueltos") {
-    return status.includes("resuelto");
-  }
-
-  if (tab === "cancelados" || tab === "canceladas") {
-    return status.includes("cancelado") || status.includes("cancelada");
-  }
-
-  if (tab === "activas") {
-    return status.includes("activa") || text.includes("activa");
-  }
-
-  if (tab === "cerradas") {
-    return status.includes("cerrada") || text.includes("cerrada");
-  }
-
-  if (tab === "confirmadas") {
-    return status.includes("confirmada");
-  }
-
-  if (tab === "completados") {
-    return status.includes("completado") || text.includes("completado");
-  }
-
-  if (tab === "asignados") {
-    return status.includes("asignado") || text.includes("asignado");
-  }
-
-  if (tab === "convenios") {
-    return status.includes("convenio") || text.includes("convenio");
-  }
-
-  if (tab === "administradores") {
-    return text.includes("administrador");
-  }
-
-  if (tab === "residentes") {
-    return text.includes("residente");
-  }
-
-  if (tab === "reglamentos" || tab === "actas" || tab === "contratos") {
-    return text.includes(tab.slice(0, -1)) || text.includes(tab);
-  }
-
-  return status.includes(tab) || text.includes(tab);
+  return textoTarjeta.indexOf(palabraBuscada) !== -1;
 }
 
-function matchesSelectFilter(value, primaryText, allText) {
-  if (!value || value.startsWith("todos") || value.startsWith("todas") || value.startsWith("mas ")) {
-    return true;
-  }
-
-  return primaryText.includes(value) || allText.includes(value);
-}
-
-function isStateFilter(text) {
-  const value = normalize(text);
-  return [
-    "todos los estados",
-    "pagado",
-    "pendiente",
-    "vencido",
-    "abierto",
-    "en proceso",
-    "resuelto",
-    "cancelado",
-    "activo",
-    "bloqueado"
-  ].includes(value);
-}
-
-function normalize(value) {
-  return value
-    .toString()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
+function normalizarTexto(texto) {
+  return String(texto)
     .toLowerCase()
+    .replace(/[áàäâ]/g, "a")
+    .replace(/[éèëê]/g, "e")
+    .replace(/[íìïî]/g, "i")
+    .replace(/[óòöô]/g, "o")
+    .replace(/[úùüû]/g, "u")
+    .replace(/ñ/g, "n")
     .trim();
 }
