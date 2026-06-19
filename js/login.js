@@ -1,23 +1,11 @@
-var usuariosDefault = [
-  {
-    login: "admin",
-    password: "admin123",
-    rol: "Administrador"
-  }
-];
+var usuarioInicial = {
+  login: "admin",
+  password: "admin123",
+  rol: "Administrador"
+};
 
 if (localStorage.getItem("usuarios") === null) {
-  localStorage.setItem("usuarios", JSON.stringify(usuariosDefault));
-}
-
-function togglePassword() {
-  var inputPassword = document.getElementById("password");
-
-  if (inputPassword.type === "password") {
-    inputPassword.type = "text";
-  } else {
-    inputPassword.type = "password";
-  }
+  localStorage.setItem("usuarios", JSON.stringify([usuarioInicial]));
 }
 
 var formularioLogin = document.getElementById("loginForm");
@@ -26,24 +14,30 @@ if (formularioLogin !== null) {
   formularioLogin.addEventListener("submit", iniciarSesion);
 }
 
+function togglePassword() {
+  var campoPassword = document.getElementById("password");
+
+  if (campoPassword.type === "password") {
+    campoPassword.type = "text";
+  } else {
+    campoPassword.type = "password";
+  }
+}
+
 function iniciarSesion(evento) {
   evento.preventDefault();
 
   var login = document.getElementById("login").value.trim();
   var password = document.getElementById("password").value.trim();
   var usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-  var usuarioEncontrado = null;
 
-  usuarios.forEach(function (usuario) {
-    if (usuario.login === login && usuario.password === password) {
-      usuarioEncontrado = usuario;
+  for (var i = 0; i < usuarios.length; i++) {
+    if (usuarios[i].login === login && usuarios[i].password === password) {
+      localStorage.setItem("usuarioActivo", JSON.stringify(usuarios[i]));
+      window.location.href = "dashboard.html";
+      return;
     }
-  });
-
-  if (usuarioEncontrado !== null) {
-    localStorage.setItem("usuarioActivo", JSON.stringify(usuarioEncontrado));
-    window.location.href = "dashboard.html";
-  } else {
-    alert("Usuario o contrasena incorrectos");
   }
+
+  alert("Usuario o contraseña incorrectos");
 }

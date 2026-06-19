@@ -118,17 +118,17 @@
           <div class="stat-icon green">📋</div>
           <div>
             <p>Total reportes</p>
-            <h2>45</h2>
-            <span>Este mes</span>
+            <h2 id="totalReports">0</h2>
+            <span>Tickets registrados</span>
           </div>
         </article>
 
         <article class="stat-card">
           <div class="stat-icon orange">🕒</div>
           <div>
-            <p>Abiertos</p>
-            <h2>15</h2>
-            <span>33.3% del total</span>
+            <p>Pendientes</p>
+            <h2 id="pendingReports">0</h2>
+            <span>Por atender</span>
           </div>
         </article>
 
@@ -136,8 +136,8 @@
           <div class="stat-icon blue">🔄</div>
           <div>
             <p>En proceso</p>
-            <h2>18</h2>
-            <span>40% del total</span>
+            <h2 id="processReports">0</h2>
+            <span>En atención</span>
           </div>
         </article>
 
@@ -145,17 +145,17 @@
           <div class="stat-icon green">✅</div>
           <div>
             <p>Resueltos</p>
-            <h2>10</h2>
-            <span>22.2% del total</span>
+            <h2 id="resolvedReports">0</h2>
+            <span>Solucionados</span>
           </div>
         </article>
 
         <article class="stat-card">
           <div class="stat-icon red">✕</div>
           <div>
-            <p>Cancelados</p>
-            <h2>2</h2>
-            <span>4.4% del total</span>
+            <p>Cerrados</p>
+            <h2 id="closedReports">0</h2>
+            <span>Finalizados</span>
           </div>
         </article>
       </section>
@@ -166,10 +166,10 @@
         <div class="tabs-header">
           <div class="tabs">
             <button class="tab active">Todos</button>
-            <button class="tab">Abiertos</button>
+            <button class="tab">Pendientes</button>
             <button class="tab">En proceso</button>
             <button class="tab">Resueltos</button>
-            <button class="tab">Cancelados</button>
+            <button class="tab">Cerrados</button>
           </div>
 
          <button class="create-btn open-report-modal" type="button">
@@ -180,11 +180,13 @@
 
         <div class="filters">
           <div class="search-box">
-            <input type="text" placeholder="Buscar reportes..." />
+            <label class="sr-only" for="reportSearch">Buscar reportes</label>
+            <input type="text" id="reportSearch" placeholder="Buscar reportes..." />
             <span>🔍</span>
           </div>
 
-          <select>
+          <label class="sr-only" for="categoryFilter">Filtrar por categoría</label>
+          <select id="categoryFilter">
             <option>Todas las categorías</option>
             <option>Mantenimiento</option>
             <option>Alumbrado</option>
@@ -193,24 +195,28 @@
             <option>Seguridad</option>
           </select>
 
-          <select>
+          <label class="sr-only" for="statusFilter">Filtrar por estado</label>
+          <select id="statusFilter">
             <option>Todos los estados</option>
-            <option>Abierto</option>
+            <option>Pendiente</option>
             <option>En proceso</option>
             <option>Resuelto</option>
-            <option>Cancelado</option>
+            <option>Cerrado</option>
           </select>
 
-          <select>
+          <label class="sr-only" for="ticketSort">Ordenar tickets</label>
+          <select id="ticketSort">
             <option>Más recientes</option>
             <option>Más antiguos</option>
-            <option>Mayor prioridad</option>
+            <option value="urgency-desc">Mayor urgencia</option>
+            <option value="urgency-asc">Menor urgencia</option>
           </select>
 
           <button class="filter-btn">⚗️ Filtros</button>
         </div>
 
-        <div class="report-list">
+        <p class="reports-message" id="reportsMessage" aria-live="polite"></p>
+        <div class="report-list" id="reportList" aria-live="polite">
 
           <article class="report-card">
             <div class="report-thumb elevator">🏢</div>
@@ -331,7 +337,7 @@
         </div>
 
         <div class="pagination">
-          <p>Mostrando 1 a 5 de 45 reportes</p>
+          <p id="reportsCount">Mostrando 0 reportes</p>
 
           <div class="pages">
             <button disabled>‹</button>
@@ -343,7 +349,8 @@
             <button>›</button>
           </div>
 
-          <select>
+          <label class="sr-only" for="reportsPerPage">Reportes por página</label>
+          <select id="reportsPerPage">
             <option>10 por página</option>
             <option>20 por página</option>
             <option>50 por página</option>
@@ -371,7 +378,7 @@
 
           <div class="donut-center">
             <span>Total</span>
-            <strong>45</strong>
+            <strong id="donutTotal">0</strong>
           </div>
         </div>
 
@@ -461,16 +468,16 @@
 
   </div>
   <!-- MODAL NUEVO REPORTE -->
-<div class="modal-overlay" id="reportModal">
-  <div class="modal-card">
+<div class="modal-overlay" id="reportModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="reportModalTitle">
 
     <div class="modal-header">
       <div>
-        <h2>Nuevo reporte</h2>
+        <h2 id="reportModalTitle">Nuevo reporte</h2>
         <p>Registra una incidencia para darle seguimiento en la comunidad.</p>
       </div>
 
-      <button class="close-modal" id="closeReportModal">×</button>
+      <button class="close-modal" id="closeReportModal" type="button" aria-label="Cerrar formulario">×</button>
     </div>
 
     <form id="newReportForm" class="modal-form">
@@ -480,7 +487,8 @@
           <label for="reportTitle">Título del reporte</label>
           <input 
             type="text" 
-            id="reportTitle" 
+            id="reportTitle"
+            name="title"
             placeholder="Ej. Fuga de agua en área común" 
             required
           />
@@ -488,7 +496,7 @@
 
         <div class="form-group">
           <label for="reportCategory">Categoría</label>
-          <select id="reportCategory" required>
+          <select id="reportCategory" name="category" required>
             <option value="">Selecciona una categoría</option>
             <option value="Mantenimiento">Mantenimiento</option>
             <option value="Alumbrado">Alumbrado</option>
@@ -504,16 +512,16 @@
           <label for="reportLocation">Ubicación</label>
           <input 
             type="text" 
-            id="reportLocation" 
+            id="reportLocation"
+            name="location"
             placeholder="Ej. Torre A - Piso 3" 
-            required
           />
         </div>
 
         <div class="form-group">
-          <label for="reportPriority">Prioridad</label>
-          <select id="reportPriority" required>
-            <option value="">Selecciona prioridad</option>
+          <label for="reportPriority">Urgencia</label>
+          <select id="reportPriority" name="urgency" required>
+            <option value="">Selecciona urgencia</option>
             <option value="Alta">Alta</option>
             <option value="Media">Media</option>
             <option value="Baja">Baja</option>
@@ -524,7 +532,8 @@
       <div class="form-group">
         <label for="reportDescription">Descripción del problema</label>
         <textarea 
-          id="reportDescription" 
+          id="reportDescription"
+          name="description"
           rows="4" 
           placeholder="Describe brevemente qué sucede..."
           required
@@ -532,8 +541,9 @@
       </div>
 
       <div class="form-group">
-        <label for="reportImage">Evidencia opcional</label>
-        <input type="file" id="reportImage" accept="image/*" />
+        <label for="reportImage">Foto de la incidencia</label>
+        <input type="file" id="reportImage" name="photo" accept="image/*" aria-describedby="photoHelp" required />
+        <small id="photoHelp">Carga simulada: se guardará el nombre del archivo.</small>
       </div>
 
       <div class="modal-actions">

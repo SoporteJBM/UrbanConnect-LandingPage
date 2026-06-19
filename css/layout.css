@@ -1,13 +1,13 @@
 /* Shared dashboard layout and form styles */
 
 .module-form {
+  display: none;
   margin-top: 18px;
   background: var(--blanco);
   border: 1px solid var(--borde);
   border-radius: 18px;
   box-shadow: var(--sombra);
   padding: 22px;
-  display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
@@ -77,6 +77,120 @@
   font-size: 14px;
   text-align: center;
   border-top: 1px solid var(--borde);
+}
+
+/* Modal reutilizable para los formularios de los módulos */
+body.module-modal-open {
+  overflow: hidden;
+}
+
+.module-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  background: rgba(4, 31, 68, 0.48);
+  backdrop-filter: blur(6px);
+}
+
+.module-modal-overlay.active {
+  display: flex;
+}
+
+.module-modal-card {
+  width: 100%;
+  max-width: 720px;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: 22px;
+  box-shadow: 0 30px 80px rgba(7, 47, 99, 0.28);
+  animation: moduleModalUp 0.28s ease both;
+}
+
+@keyframes moduleModalUp {
+  from { opacity: 0; transform: translateY(18px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.module-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 24px 26px;
+  border-bottom: 1px solid var(--borde);
+}
+
+.module-modal-header h2 {
+  margin-bottom: 6px;
+  color: var(--azul-oscuro);
+  font-size: 24px;
+}
+
+.module-modal-header p {
+  color: var(--gris);
+  font-size: 14px;
+}
+
+.module-modal-close {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  border: 0;
+  border-radius: 10px;
+  background: #f1f5f9;
+  color: #40516a;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.module-modal-card .module-form {
+  display: grid;
+  margin: 0;
+  padding: 26px;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.module-modal-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+.module-form .module-modal-actions button {
+  grid-column: auto;
+  width: auto;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.module-form .module-modal-cancel {
+  border: 1px solid var(--borde);
+  background: var(--blanco);
+  color: #40516a;
+  box-shadow: none;
+}
+
+@media (max-width: 700px) {
+  .module-modal-overlay { padding: 12px; }
+  .module-modal-header { padding: 20px; }
+  .module-modal-header h2 { font-size: 21px; }
+  .module-modal-card .module-form { padding: 20px; }
+  .module-modal-actions { flex-direction: column-reverse; }
+  .module-form .module-modal-actions button { width: 100%; }
 }
 
 @media (max-width: 700px) {

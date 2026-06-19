@@ -1,6 +1,6 @@
 # Capítulo V: Product Implementation
 
-UrbanConnect se implementa como una aplicación web estática construida con HTML5, CSS3 y JavaScript. El producto presenta un Landing Page público en `index.html` y conserva el prototipo funcional de administración en `dashboard.html` y sus módulos relacionados.
+UrbanConnect se implementa como una aplicación web estática construida con HTML5, CSS3 y JavaScript. El punto de entrada `index.html` presenta el inicio de sesión y conecta con el panel de administración en `dashboard.html` y sus módulos relacionados.
 
 ## 5.1 Software Configuration Management
 
@@ -83,7 +83,7 @@ Después de la revisión, la rama `feature/*` se integra en `develop`. Una rama 
 
 Las versiones siguen el formato `MAJOR.MINOR.PATCH`:
 
-- `v1.0.0`: primera versión estable del Landing Page.
+- `v1.0.0`: primera versión estable de la interfaz web.
 - `v1.1.0`: nueva funcionalidad compatible con la versión anterior.
 - `v1.0.1`: corrección compatible sin nuevas funcionalidades.
 
@@ -162,14 +162,14 @@ Antes de una publicación se debe comprobar que:
 - La navegación funciona con teclado y pantalla táctil.
 - El contenido no se desborda en desktop, tablet o móvil.
 
-## Pruebas de aceptación del Landing Page
+## Pruebas de aceptación del inicio de sesión
 
-Las pruebas de aceptación se expresan en Gherkin para describir el comportamiento desde la perspectiva del visitante. Los escenarios se encuentran en `features/landing-page.feature` y cubren:
+Las pruebas de aceptación se expresan en Gherkin para describir el comportamiento desde la perspectiva del usuario. Los escenarios se encuentran en `features/login.feature` y cubren:
 
-- Visualización del contenido principal.
-- Navegación hacia secciones internas.
-- Acceso al login y registro.
-- Apertura y cierre del menú móvil.
-- Conservación de contenido en diferentes tamaños de pantalla.
+- Visualización del formulario de acceso.
+- Acceso con credenciales válidas.
+- Rechazo de credenciales inválidas.
+- Navegación hacia el registro.
+- Adaptación del formulario a diferentes tamaños de pantalla.
 
 Estas pruebas pueden ejecutarse manualmente durante el prototipo. En una etapa posterior pueden automatizarse con una herramienta compatible con Gherkin, manteniendo los mismos criterios funcionales.

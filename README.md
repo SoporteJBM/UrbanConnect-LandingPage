@@ -1,6 +1,6 @@
 # UrbanConnect
 
-UrbanConnect es un prototipo web para la gestión de comunidades residenciales. Incluye un Landing Page público y módulos de administración para comunicados, reportes, servicios, encuestas, reservas, pagos, documentos y usuarios.
+UrbanConnect es un prototipo web para la gestión de comunidades residenciales. Incluye un inicio de sesión y módulos de administración para comunicados, reportes, servicios, encuestas, reservas, pagos, documentos y usuarios.
 
 ## Tecnologías
 
@@ -17,7 +17,7 @@ No requiere frameworks, dependencias, instalación ni proceso de compilación.
 1. Descarga o clona el repositorio.
 2. Abre `index.html` en un navegador moderno.
 
-También puedes iniciar la experiencia de prueba desde `Login.html` con estas credenciales:
+Puedes iniciar la experiencia de prueba desde `index.html` con estas credenciales:
 
 ```text
 Usuario: admin
@@ -30,24 +30,23 @@ Después del acceso, el usuario es dirigido a `dashboard.html`.
 
 ```text
 UrbanConnect/
-├── index.html                         # Landing Page
+├── index.html                         # Inicio de sesión
 ├── dashboard.html                     # Panel administrativo
-├── Login.html                         # Inicio de sesión
 ├── registro.html                      # Registro
 ├── css/
-│   └── landing.css                    # Estilos del Landing Page
+│   └── login.css                      # Estilos del inicio de sesión
 ├── js/
-│   └── landing.js                     # Menú responsive e interacciones
+│   └── login.js                       # Validación y acceso
 ├── img/                               # Recursos gráficos locales
 ├── docs/
 │   └── chapter-v-product-implementation.md
 └── features/
-    └── landing-page.feature
+    └── login.feature
 ```
 
 ## Responsive design
 
-El Landing Page se adapta a:
+El inicio de sesión se adapta a:
 
 - Desktop: ancho mayor a `1024px`.
 - Tablet: entre `769px` y `1024px`.
@@ -66,7 +65,7 @@ El Landing Page se adapta a:
 
 La configuración de desarrollo, GitFlow, versionado, despliegue y criterios de aceptación están descritos en [docs/chapter-v-product-implementation.md](docs/chapter-v-product-implementation.md).
 
-Los escenarios de aceptación del Landing Page se encuentran en [features/landing-page.feature](features/landing-page.feature).
+Los escenarios de aceptación del inicio de sesión se encuentran en [features/login.feature](features/login.feature).
 
 ## Despliegue
 
