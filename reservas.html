@@ -35,7 +35,7 @@
         <article class="stat-card"><div class="stat-icon red">⚠️</div><div><p>Conflictos</p><h2>1</h2><span>Horario duplicado</span></div></article>
       </section>
       <section class="payments-panel">
-        <div class="tabs-header"><div class="tabs"><button class="tab active">Todas</button><button class="tab">Confirmadas</button><button class="tab">Pendientes</button><button class="tab">Canceladas</button></div><button class="create-btn"><span>＋</span>Nueva reserva</button></div>
+        <div class="tabs-header"><div class="tabs"><button class="tab active">Todas</button><button class="tab">Confirmadas</button><button class="tab">Pendientes</button><button class="tab">Canceladas</button></div><span class="hu-label cancellation-note">HU-27 · Cancelación por reserva</span><button class="create-btn"><span>＋</span>Nueva reserva</button></div>
         <div class="filters"><div class="search-box"><input type="text" placeholder="Buscar espacio o residente..." /><span>🔍</span></div><select><option>Todos los espacios</option><option>Salón de eventos</option><option>Cancha múltiple</option><option>Parrillas</option></select><select><option>Esta semana</option><option>Este mes</option></select><button class="filter-btn">⚗️ Filtros</button></div>
         <div class="payment-list">
           <article class="payment-card"><div class="payment-icon paid">✓</div><div class="payment-info"><span class="folio">#RV-2026-044</span><h3>Salón de eventos</h3><p>Lucía Torres · Depto 502 · Cumpleaños familiar.</p><div class="payment-tags"><span class="tag green">Confirmada</span><span class="method">📅 18 Jun · 6:00 PM</span></div></div><div class="payment-meta"><span class="status paid">Confirmada</span><h4>S/ 500</h4><p>Pagado</p></div><button class="more-btn">•••</button></article>
@@ -45,7 +45,7 @@
       </section>
 
       <form id="reservationForm" class="module-form">
-        <h3>Nueva reserva</h3>
+        <h3>HU-16 · Nueva reserva de área común</h3>
 
         <label for="reservationResident">Residente</label>
         <input type="text" id="reservationResident" name="reservationResident" placeholder="Ej. Lucía Torres" required />
@@ -65,11 +65,61 @@
         <label for="reservationTime">Hora</label>
         <input type="time" id="reservationTime" name="reservationTime" required />
 
+        <label for="reservationCapacity">Cantidad de asistentes</label>
+        <input type="number" id="reservationCapacity" name="reservationCapacity" min="1" placeholder="Indica el número de asistentes" required />
+        <p id="capacityHelp" class="field-help" role="status">HU-29 · Selecciona un espacio para conocer su aforo máximo.</p>
+
         <label for="reservationNotes">Notas</label>
         <textarea id="reservationNotes" name="reservationNotes" rows="3" placeholder="Detalle de la reserva..."></textarea>
 
-        <button type="button">Guardar reserva</button>
+        <section class="rules-box" aria-labelledby="rulesTitle">
+          <h4 id="rulesTitle">HU-28 · Reglamento del área común</h4>
+          <ul>
+            <li>Respeta el horario reservado y el aforo permitido.</li>
+            <li>Entrega el espacio limpio y sin daños.</li>
+            <li>No está permitido generar ruidos molestos ni bloquear accesos.</li>
+          </ul>
+          <label class="acceptance-check" for="acceptRules">
+            <input type="checkbox" id="acceptRules" required />
+            He leído y acepto el reglamento.
+          </label>
+        </section>
+
+        <div id="reservationResult" class="action-result" role="status" aria-live="polite"></div>
+
+        <button type="submit">Guardar reserva</button>
       </form>
+
+      <section class="inspection-panel" aria-labelledby="inspectionTitle">
+        <div class="section-heading">
+          <div><span class="hu-label">HU-30</span><h2 id="inspectionTitle">Inspección posterior del área</h2></div>
+          <p>Registra cómo fue entregado el espacio después de una reserva.</p>
+        </div>
+        <form id="inspectionForm" class="inspection-form">
+          <label for="inspectionReservation">Reserva</label>
+          <select id="inspectionReservation" required>
+            <option value="">Selecciona una reserva</option>
+            <option value="RV-2026-044">#RV-2026-044 · Salón de eventos</option>
+            <option value="RV-2026-042">#RV-2026-042 · Cancha múltiple</option>
+          </select>
+          <label for="inspectionStatus">Estado del área</label>
+          <select id="inspectionStatus" required>
+            <option value="">Selecciona el estado</option>
+            <option value="Conforme">Conforme</option>
+            <option value="Requiere limpieza">Requiere limpieza</option>
+            <option value="Con daños">Con daños</option>
+          </select>
+          <label for="inspectionPhoto">Foto simulada</label>
+          <select id="inspectionPhoto" required>
+            <option value="">Selecciona una evidencia</option>
+            <option value="area-limpia.jpg">📷 área-limpia.jpg</option>
+            <option value="limpieza-pendiente.jpg">📷 limpieza-pendiente.jpg</option>
+            <option value="dano-reportado.jpg">📷 dano-reportado.jpg</option>
+          </select>
+          <button type="submit">Registrar inspección</button>
+        </form>
+        <div id="inspectionResult" class="inspection-result" role="status" aria-live="polite"></div>
+      </section>
     </main>
     <aside class="right-panel"><section class="side-widget"><h3>Espacios populares</h3><div class="method-list"><div><span>🏢</span>Salón de eventos<strong>18</strong></div><div><span>🔥</span>Parrillas<strong>12</strong></div><div><span>⚽</span>Cancha<strong>9</strong></div></div></section><section class="side-widget"><h3>Acciones rápidas</h3><div class="quick-actions"><button>＋ Crear reserva</button><button>📅 Ver calendario</button><button>📩 Avisar residentes</button></div></section></aside>
   </div>

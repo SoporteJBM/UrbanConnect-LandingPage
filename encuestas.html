@@ -67,9 +67,26 @@
 
         <button type="button">Guardar encuesta</button>
       </form>
+
+      <section class="digital-vote" aria-labelledby="voteTitle">
+        <div class="vote-heading"><span>HU-17</span><div><h2 id="voteTitle">Votación digital comunitaria</h2><p>¿Qué mejora debería priorizarse este trimestre?</p></div></div>
+        <form id="digitalVoteForm" class="vote-form">
+          <label class="vote-option"><input type="radio" name="communityVote" value="Iluminación de áreas comunes" required /><span><strong>💡 Iluminación de áreas comunes</strong><small>Renovar luminarias y zonas de tránsito.</small></span></label>
+          <label class="vote-option"><input type="radio" name="communityVote" value="Cámaras de seguridad" required /><span><strong>📹 Cámaras de seguridad</strong><small>Ampliar la cobertura en accesos y cocheras.</small></span></label>
+          <label class="vote-option"><input type="radio" name="communityVote" value="Jardín y juegos infantiles" required /><span><strong>🌿 Jardín y juegos infantiles</strong><small>Recuperar áreas verdes y juegos exteriores.</small></span></label>
+          <button type="submit">Registrar voto</button>
+        </form>
+        <div id="voteResult" class="vote-result" role="status" aria-live="polite"></div>
+        <div class="vote-results" aria-label="Resultados actuales">
+          <div><p><span>Iluminación de áreas comunes</span><strong id="voteCount0">12 votos</strong></p><div class="result-track"><i id="voteBar0"></i></div></div>
+          <div><p><span>Cámaras de seguridad</span><strong id="voteCount1">18 votos</strong></p><div class="result-track"><i id="voteBar1"></i></div></div>
+          <div><p><span>Jardín y juegos infantiles</span><strong id="voteCount2">10 votos</strong></p><div class="result-track"><i id="voteBar2"></i></div></div>
+        </div>
+      </section>
     </main>
     <aside class="right-panel"><section class="side-widget"><h3>Resultados destacados</h3><div class="method-list"><div><span>🏋️</span>Gimnasio extendido<strong>68%</strong></div><div><span>🌿</span>Jardín central<strong>54%</strong></div><div><span>🛡️</span>Seguridad nocturna<strong>82%</strong></div></div></section><section class="side-widget"><h3>Acciones rápidas</h3><div class="quick-actions"><button>＋ Crear encuesta</button><button>📊 Ver resultados</button><button>📩 Enviar recordatorio</button></div></section></aside>
   </div>
   <script src="js/encuestas.js"></script>
+  <script src="js/comunidad.js"></script>
 </body>
 </html>

@@ -255,7 +255,7 @@
       </section>
 
       <form id="announcementForm" class="module-form">
-        <h3>Crear comunicado</h3>
+        <h3>HU-15 · Publicar aviso importante</h3>
 
         <label for="announcementTitle">Título</label>
         <input type="text" id="announcementTitle" name="announcementTitle" placeholder="Ej. Mantenimiento en el elevador" required />
@@ -276,8 +276,48 @@
         <label for="announcementContent">Contenido</label>
         <textarea id="announcementContent" name="announcementContent" rows="4" placeholder="Escribe el comunicado..." required></textarea>
 
-        <button type="button">Guardar comunicado</button>
+        <div id="announcementResult" class="community-result" role="status" aria-live="polite"></div>
+        <button type="submit">Publicar aviso</button>
       </form>
+
+      <section class="community-section" aria-labelledby="contactsTitle">
+        <div class="community-heading"><span>HU-18</span><div><h2 id="contactsTitle">Directorio de contactos de emergencia</h2><p>Accesos rápidos para responder ante una emergencia.</p></div></div>
+        <div class="contact-grid">
+          <article class="contact-card"><div class="contact-icon red">🚒</div><div><h3>Bomberos</h3><p>Emergencias e incendios</p><strong>116</strong></div><button type="button" class="contact-action" data-contact="Bomberos" data-number="116">Ver contacto</button></article>
+          <article class="contact-card"><div class="contact-icon blue">🚓</div><div><h3>Policía Nacional</h3><p>Seguridad ciudadana</p><strong>105</strong></div><button type="button" class="contact-action" data-contact="Policía Nacional" data-number="105">Ver contacto</button></article>
+          <article class="contact-card"><div class="contact-icon green">🏥</div><div><h3>SAMU</h3><p>Urgencias médicas</p><strong>106</strong></div><button type="button" class="contact-action" data-contact="SAMU" data-number="106">Ver contacto</button></article>
+          <article class="contact-card"><div class="contact-icon orange">🛡️</div><div><h3>Seguridad del condominio</h3><p>Atención las 24 horas</p><strong>(01) 555-0199</strong></div><button type="button" class="contact-action" data-contact="Seguridad del condominio" data-number="(01) 555-0199">Ver contacto</button></article>
+        </div>
+        <div id="contactResult" class="community-result standalone" role="status" aria-live="polite"></div>
+      </section>
+
+      <section class="community-section community-columns" aria-label="Participación y accesos de la comunidad">
+        <article class="community-card" aria-labelledby="suggestionTitle">
+          <div class="community-heading compact"><span>HU-19</span><div><h2 id="suggestionTitle">Buzón de sugerencias</h2><p>Comparte una idea para mejorar la comunidad.</p></div></div>
+          <form id="suggestionForm" class="community-form">
+            <label for="suggestionCategory">Categoría</label>
+            <select id="suggestionCategory" required><option value="">Selecciona una categoría</option><option>Convivencia</option><option>Seguridad</option><option>Mantenimiento</option><option>Áreas comunes</option></select>
+            <label for="suggestionText">Sugerencia</label>
+            <textarea id="suggestionText" rows="4" maxlength="400" placeholder="Describe tu propuesta..." required></textarea>
+            <label class="anonymous-check"><input type="checkbox" id="suggestionAnonymous" /> Enviar de forma anónima</label>
+            <button type="submit">Enviar sugerencia</button>
+            <div id="suggestionResult" class="community-result" role="status" aria-live="polite"></div>
+          </form>
+        </article>
+
+        <article class="community-card" aria-labelledby="guestTitle">
+          <div class="community-heading compact"><span>HU-20</span><div><h2 id="guestTitle">Control de invitados</h2><p>Registra una visita y genera su autorización.</p></div></div>
+          <form id="guestForm" class="community-form">
+            <label for="guestName">Nombre del invitado</label>
+            <input type="text" id="guestName" placeholder="Nombre completo" required />
+            <label for="guestDocument">Documento</label>
+            <input type="text" id="guestDocument" inputmode="numeric" pattern="[0-9]{8,12}" placeholder="DNI o documento" required />
+            <div class="form-pair"><div><label for="guestDate">Fecha</label><input type="date" id="guestDate" required /></div><div><label for="guestTime">Hora</label><input type="time" id="guestTime" required /></div></div>
+            <button type="submit">Autorizar ingreso</button>
+            <div id="guestResult" class="community-result" role="status" aria-live="polite"></div>
+          </form>
+        </article>
+      </section>
 
     </main>
 
@@ -363,5 +403,6 @@
 
   </div>
   <script src="js/filters.js"></script>
+  <script src="js/comunidad.js"></script>
 </body>
 </html>
