@@ -94,9 +94,9 @@
         </div>
 
         <div class="top-actions">
-          <button class="icon-btn">🔍</button>
+          <button class="icon-btn" type="button" aria-label="Buscar">🔍</button>
 
-          <button class="icon-btn notification">
+          <button class="icon-btn notification" type="button" aria-label="Ver notificaciones">
             🔔
             <span>3</span>
           </button>
@@ -134,11 +134,11 @@
 
         <div class="filters">
           <div class="search-box">
-            <input type="text" placeholder="Buscar comunicados..." />
+            <input type="text" placeholder="Buscar comunicados..." aria-label="Buscar comunicados" />
             <span>🔍</span>
           </div>
 
-          <select>
+          <select aria-label="Filtrar por categoría">
             <option>Todas las categorías</option>
             <option>Mantenimiento</option>
             <option>Asamblea</option>
@@ -146,7 +146,7 @@
             <option>Convivencia</option>
           </select>
 
-          <select>
+          <select aria-label="Ordenar comunicados">
             <option>Más recientes</option>
             <option>Más antiguos</option>
             <option>Más vistos</option>

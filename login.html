@@ -3,23 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>UrbanConnect | Login</title>
-<link rel="stylesheet" href="css/global.css" />
-<link rel="stylesheet" href="css/login.css" />
+  <meta name="description" content="Inicia sesión en UrbanConnect para gestionar tu comunidad residencial." />
+  <title>UrbanConnect | Iniciar sesión</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/login.css" />
 </head>
 
 <body>
   <main class="page">
-
-    <!-- Decoración de fondo -->
     <div class="cloud left"></div>
     <div class="cloud right"></div>
 
     <div class="route-line one"></div>
     <div class="route-line two"></div>
 
-    <!-- Íconos flotantes -->
     <div class="float-card users">
       <img src="img/icon-users.png" alt="Usuarios" />
     </div>
@@ -32,36 +29,34 @@
       <img src="img/icon-chat.png" alt="Mensajes" />
     </div>
 
-    <!-- Tarjeta de login -->
     <section class="login-card">
-
-      <div class="logo">
-        <img 
-          src="img/logo-urbanconnect.png" 
-          alt="Logo urbanConnect" 
-          class="logo-img" 
+      <a class="logo" href="index.html" aria-label="Volver a la página pública de UrbanConnect">
+        <img
+          src="img/logo-urbanconnect.png"
+          alt="Logo UrbanConnect"
+          class="logo-img"
         />
 
         <div class="brand">
-          urban<span>Connect</span>
+          Urban<span>Connect</span>
         </div>
-      </div>
+      </a>
 
       <h1>Iniciar sesión</h1>
 
       <form id="loginForm">
-
         <div class="form-group">
           <label for="login">Usuario</label>
 
           <div class="input-box">
             <span class="input-symbol">👤</span>
-
-            <input 
-              type="text" 
-              id="login" 
-              placeholder="Ingresa tu usuario" 
-              required 
+            <input
+              type="text"
+              id="login"
+              name="login"
+              autocomplete="username"
+              placeholder="Ingresa tu usuario"
+              required
             />
           </div>
         </div>
@@ -71,20 +66,21 @@
 
           <div class="input-box">
             <span class="input-symbol">🔒</span>
-
-            <input 
-              type="password" 
-              id="password" 
-              placeholder="Ingresa tu contraseña" 
-              required 
+            <input
+              type="password"
+              id="password"
+              name="password"
+              autocomplete="current-password"
+              placeholder="Ingresa tu contraseña"
+              required
             />
 
-            <button 
-              class="eye-icon" 
-              type="button" 
+            <button
+              class="eye-icon"
+              type="button"
+              aria-label="Mostrar u ocultar contraseña"
               onclick="togglePassword()"
-            >
-            </button>
+            ></button>
           </div>
         </div>
 
@@ -94,16 +90,18 @@
             Recordarme
           </label>
 
-          <a href="#">¿Olvidaste tu contraseña?</a>
+          <a id="forgotPassword" href="#loginMessage">¿Olvidaste tu contraseña?</a>
         </div>
 
         <button type="submit" class="btn-primary">
           Iniciar sesión <span>→</span>
         </button>
 
+        <p id="loginMessage" class="login-message" role="status" aria-live="polite"></p>
+
         <div class="divider">o</div>
 
-        <button type="button" class="google-btn">
+        <button id="googleLogin" type="button" class="google-btn">
           <span class="google-g">G</span>
           Continuar con Google
         </button>
@@ -112,11 +110,9 @@
           ¿No tienes cuenta?
           <a href="registro.html">Regístrate</a>
         </p>
-
       </form>
     </section>
 
-    <!-- Texto inferior de seguridad -->
     <div class="secure">
       <img src="img/icon-shield.png" alt="Seguridad" />
 
@@ -126,13 +122,11 @@
       </div>
     </div>
 
-    <!-- Imagen de ciudad -->
-    <img 
-      src="img/city-background.png" 
-      alt="Ciudad urbanConnect" 
-      class="city-img" 
+    <img
+      src="img/city-background.png"
+      alt="Ciudad UrbanConnect"
+      class="city-img"
     />
-
   </main>
 
   <script src="js/login.js"></script>

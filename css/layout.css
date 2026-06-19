@@ -184,6 +184,16 @@ body.module-modal-open {
   box-shadow: none;
 }
 
+.module-feedback {
+  grid-column: 1 / -1;
+  min-height: 20px;
+  margin: 0;
+  color: #047f48;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
 @media (max-width: 700px) {
   .module-modal-overlay { padding: 12px; }
   .module-modal-header { padding: 20px; }

@@ -27,7 +27,7 @@
       <div class="sidebar-card"><div class="shield-box">🛡️</div><h3>Plataforma segura para tu comunidad</h3><p>Tus datos están protegidos</p><a href="#">Más información →</a></div>
     </aside>
     <main class="main-content">
-      <header class="topbar"><div><h1>Documentos</h1><p>Organiza reglamentos, actas, contratos y archivos de la comunidad.</p></div><div class="top-actions"><button class="icon-btn">🔍</button><button class="icon-btn notification">🔔<span>3</span></button><div class="profile"><div class="avatar">JP</div><div><h4>Juan Pérez</h4><p>Administrador</p></div><span class="arrow">⌄</span></div></div></header>
+      <header class="topbar"><div><h1>Documentos</h1><p>Organiza reglamentos, actas, contratos y archivos de la comunidad.</p></div><div class="top-actions"><button class="icon-btn" type="button" aria-label="Buscar">🔍</button><button class="icon-btn notification" type="button" aria-label="Ver notificaciones">🔔<span>3</span></button><div class="profile"><div class="avatar">JP</div><div><h4>Juan Pérez</h4><p>Administrador</p></div><span class="arrow">⌄</span></div></div></header>
       <section class="stats-row">
         <article class="stat-card"><div class="stat-icon blue">📁</div><div><p>Total documentos</p><h2>86</h2><span>Archivados</span></div></article>
         <article class="stat-card"><div class="stat-icon green">📄</div><div><p>Publicados</p><h2>64</h2><span>Visibles</span></div></article>
@@ -36,7 +36,7 @@
       </section>
       <section class="payments-panel">
         <div class="tabs-header"><div class="tabs"><button class="tab active">Todos</button><button class="tab">Reglamentos</button><button class="tab">Actas</button><button class="tab">Contratos</button></div><button class="create-btn"><span>＋</span>Subir documento</button></div>
-        <div class="filters"><div class="search-box"><input type="text" placeholder="Buscar documento..." /><span>🔍</span></div><select><option>Todas las carpetas</option><option>Reglamentos</option><option>Asambleas</option><option>Contratos</option></select><select><option>Más recientes</option><option>Más vistos</option></select><button class="filter-btn">⚗️ Filtros</button></div>
+        <div class="filters"><div class="search-box"><input type="text" placeholder="Buscar documento..." aria-label="Buscar documentos" /><span>🔍</span></div><select aria-label="Filtrar por carpeta"><option>Todas las carpetas</option><option>Reglamentos</option><option>Asambleas</option><option>Contratos</option></select><select aria-label="Ordenar documentos"><option>Más recientes</option><option>Más vistos</option></select><button class="filter-btn">⚗️ Filtros</button></div>
         <div class="payment-list">
           <article class="payment-card"><div class="payment-icon paid">📄</div><div class="payment-info"><span class="folio">DOC-086</span><h3>Reglamento interno actualizado</h3><p>Documento vigente para todos los residentes.</p><div class="payment-tags"><span class="tag green">Publicado</span><span class="method">👁️ 214 vistas</span></div></div><div class="payment-meta"><span class="status paid">PDF</span><h4>2.4 MB</h4><p>12 Jun 2026</p></div><button class="more-btn">•••</button></article>
           <article class="payment-card"><div class="payment-icon pending">📋</div><div class="payment-info"><span class="folio">DOC-085</span><h3>Acta de asamblea ordinaria</h3><p>Resumen de acuerdos y votaciones de mayo.</p><div class="payment-tags"><span class="tag orange">Por revisar</span><span class="method">🧾 Administración</span></div></div><div class="payment-meta"><span class="status pending">DOCX</span><h4>820 KB</h4><p>10 Jun 2026</p></div><button class="more-btn">•••</button></article>
@@ -69,11 +69,11 @@
         <label for="documentFile">Archivo</label>
         <input type="file" id="documentFile" name="documentFile" required />
 
-        <button type="button">Guardar documento</button>
+        <button type="submit">Guardar documento</button>
       </form>
     </main>
     <aside class="right-panel"><section class="side-widget"><h3>Carpetas</h3><div class="method-list"><div><span>📘</span>Reglamentos<strong>12</strong></div><div><span>📋</span>Actas<strong>28</strong></div><div><span>🤝</span>Contratos<strong>9</strong></div></div></section><section class="side-widget"><h3>Acciones rápidas</h3><div class="quick-actions"><button>＋ Subir archivo</button><button>📁 Crear carpeta</button><button>⬇️ Exportar índice</button></div></section></aside>
   </div>
-  <script src="js/filters.js"></script>
+  <script src="js/documentos.js"></script>
 </body>
 </html>

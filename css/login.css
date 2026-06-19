@@ -485,3 +485,14 @@ label {
     max-width: 330px;
   }
 }
+.login-message {
+  min-height: 20px;
+  margin: 10px 0 0;
+  color: #52627a;
+  font-size: 13px;
+  text-align: center;
+}
+
+.login-message.success { color: #047f48; }
+.login-message.error { color: #b91c1c; }
+.login-message.info { color: #40516a; }

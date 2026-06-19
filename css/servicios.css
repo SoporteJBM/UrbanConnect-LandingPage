@@ -93,6 +93,37 @@ th { background: #f7fafc; color: #40516a; font-size: 12px; }
 .module-modal-card .module-form { background: #fff; }
 .module-modal-header { background: #fbfdff; }
 .module-modal-submit { background: linear-gradient(135deg,var(--verde),var(--verde-oscuro)) !important; color: #fff !important; }
+.operations-section { margin-top: 20px; }
+.section-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.section-heading h2 { margin: 3px 0 5px; font-size: 22px; }
+.section-heading p, .operation-card > p { color: var(--gris); font-size: 13px; line-height: 1.5; }
+.section-kicker, .hu-label { color: #0874d9; font-size: 10px; font-weight: 900; letter-spacing: .09em; }
+.operations-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.operation-card { display: flex; flex-direction: column; gap: 13px; min-width: 0; padding: 20px; border: 1px solid var(--borde); border-radius: 17px; background: #fff; box-shadow: var(--sombra); }
+.operation-card:last-child { grid-column: 1 / -1; }
+.operation-title { display: flex; align-items: center; gap: 11px; }
+.operation-title h3 { margin-top: 2px; font-size: 16px; }
+.operation-icon { width: 43px; height: 43px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 13px; font-size: 19px; }
+.operation-icon.blue { background: #eaf4ff; color: #006de5; }
+.operation-icon.green { background: #dcfce7; color: #047f48; }
+.operation-icon.orange { background: #fff3df; color: #a55d00; }
+.operation-icon.purple { background: #f0eaff; color: #7040d8; }
+.operation-icon.red { background: #fee2e2; color: #b91c1c; }
+.operation-card label { color: #40516a; font-size: 12px; font-weight: 800; }
+.operation-card input, .operation-card select { width: 100%; height: 42px; padding: 0 12px; border: 1px solid #cbd8e5; border-radius: 10px; outline: none; background: #fff; color: var(--azul-oscuro); font: inherit; }
+.operation-card input:focus, .operation-card select:focus { border-color: var(--verde); box-shadow: 0 0 0 4px rgba(24,191,114,.12); }
+.compact-form { display: flex; flex-direction: column; gap: 9px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.field-row > div { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+.operation-btn, .panic-btn { min-height: 42px; padding: 0 16px; border: 0; border-radius: 10px; background: linear-gradient(135deg,var(--verde),var(--verde-oscuro)); color: #fff; font-weight: 800; }
+.operation-btn.secondary { border: 1px solid #b8c9da; background: #f8fbfe; color: #263750; }
+.panic-btn { min-height: 50px; background: linear-gradient(135deg,#e53935,#b91c1c); box-shadow: 0 10px 24px rgba(185,28,28,.2); }
+.panic-btn:disabled { cursor: not-allowed; opacity: .7; }
+.operation-result { min-height: 43px; padding: 11px 12px; border: 1px solid #d8e3ed; border-radius: 10px; background: #f8fbfe; color: #52627a; font-size: 12px; line-height: 1.45; }
+.operation-result.success { border-color: #9eddbb; background: #edfbf3; color: #047f48; }
+.operation-result.warning { border-color: #f2b8b5; background: #fff1f1; color: #a71919; }
+.history-list { display: flex; flex-direction: column; gap: 7px; margin: 0; padding: 0; list-style: none; }
+.history-list strong { display: block; color: var(--azul-oscuro); }
 @media (max-width: 1180px) {
   .app-layout { grid-template-columns: 230px minmax(0,1fr); }
   .right-panel { grid-column: 2; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); padding: 0 30px 30px; }
@@ -116,6 +147,8 @@ th { background: #f7fafc; color: #40516a; font-size: 12px; }
   .payment-meta { grid-column: 2 / 3; text-align: left; }
   .more-btn { grid-column: 3; grid-row: 1; }
   .right-panel { grid-column: auto; grid-template-columns: 1fr; padding: 0 20px 20px; }
+  .operations-grid { grid-template-columns: 1fr; }
+  .operation-card:last-child { grid-column: auto; }
 }
 @media (max-width: 540px) {
   .main-content { padding: 14px; }
@@ -131,4 +164,5 @@ th { background: #f7fafc; color: #40516a; font-size: 12px; }
   .payment-info > p { white-space: normal; }
   .payment-meta, .more-btn { grid-column: 2; }
   .more-btn { grid-row: auto; justify-self: end; }
+  .field-row { grid-template-columns: 1fr; }
 }

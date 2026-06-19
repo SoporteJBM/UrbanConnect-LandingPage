@@ -4,6 +4,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     iniciarFiltros();
     iniciarFormularioModal();
+    iniciarRegistroEncuesta();
   });
 
   function iniciarFiltros() {
@@ -66,6 +67,29 @@
       selector.addEventListener("change", actualizar);
     });
     actualizar();
+  }
+
+  function iniciarRegistroEncuesta() {
+    var formulario = document.getElementById("surveyForm");
+    if (!formulario) return;
+    formulario.addEventListener("submit", function (evento) {
+      evento.preventDefault();
+      if (!formulario.checkValidity()) { formulario.reportValidity(); return; }
+      mostrarConfirmacion(formulario, "Encuesta guardada correctamente.");
+      formulario.reset();
+    });
+  }
+
+  function mostrarConfirmacion(formulario, texto) {
+    var mensaje = formulario.querySelector(".module-feedback");
+    if (!mensaje) {
+      mensaje = document.createElement("p");
+      mensaje.className = "module-feedback";
+      mensaje.setAttribute("role", "status");
+      mensaje.setAttribute("aria-live", "polite");
+      formulario.insertBefore(mensaje, formulario.querySelector(".module-modal-actions"));
+    }
+    mensaje.textContent = texto;
   }
 
   function iniciarFormularioModal() {

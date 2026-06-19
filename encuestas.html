@@ -27,7 +27,7 @@
       <div class="sidebar-card"><div class="shield-box">🛡️</div><h3>Plataforma segura para tu comunidad</h3><p>Tus datos están protegidos</p><a href="#">Más información →</a></div>
     </aside>
     <main class="main-content">
-      <header class="topbar"><div><h1>Encuestas</h1><p>Consulta la opinión de los residentes y toma decisiones con datos.</p></div><div class="top-actions"><button class="icon-btn">🔍</button><button class="icon-btn notification">🔔<span>3</span></button><div class="profile"><div class="avatar">JP</div><div><h4>Juan Pérez</h4><p>Administrador</p></div><span class="arrow">⌄</span></div></div></header>
+      <header class="topbar"><div><h1>Encuestas</h1><p>Consulta la opinión de los residentes y toma decisiones con datos.</p></div><div class="top-actions"><button class="icon-btn" type="button" aria-label="Buscar">🔍</button><button class="icon-btn notification" type="button" aria-label="Ver notificaciones">🔔<span>3</span></button><div class="profile"><div class="avatar">JP</div><div><h4>Juan Pérez</h4><p>Administrador</p></div><span class="arrow">⌄</span></div></div></header>
       <section class="stats-row">
         <article class="stat-card"><div class="stat-icon blue">📝</div><div><p>Encuestas activas</p><h2>4</h2><span>Abiertas</span></div></article>
         <article class="stat-card"><div class="stat-icon green">👥</div><div><p>Respuestas</p><h2>186</h2><span>Este mes</span></div></article>
@@ -36,7 +36,7 @@
       </section>
       <section class="payments-panel">
         <div class="tabs-header"><div class="tabs"><button class="tab active">Todas</button><button class="tab">Activas</button><button class="tab">Cerradas</button><button class="tab">Borradores</button></div><button class="create-btn"><span>＋</span>Nueva encuesta</button></div>
-        <div class="filters"><div class="search-box"><input type="text" placeholder="Buscar encuesta..." /><span>🔍</span></div><select><option>Todas las categorías</option><option>Convivencia</option><option>Reservas</option><option>Administración</option></select><select><option>Más recientes</option><option>Mayor participación</option></select><button class="filter-btn">⚗️ Filtros</button></div>
+        <div class="filters"><div class="search-box"><input type="text" placeholder="Buscar encuesta..." aria-label="Buscar encuestas" /><span>🔍</span></div><select aria-label="Filtrar por categoría"><option>Todas las categorías</option><option>Convivencia</option><option>Reservas</option><option>Administración</option></select><select aria-label="Ordenar encuestas"><option>Más recientes</option><option>Mayor participación</option></select><button class="filter-btn">⚗️ Filtros</button></div>
         <div class="payment-list">
           <article class="payment-card"><div class="payment-icon paid">✓</div><div class="payment-info"><span class="folio">#E-2026-014</span><h3>Horario de uso del gimnasio</h3><p>Encuesta activa para definir nuevos horarios de apertura.</p><div class="payment-tags"><span class="tag green">Activa</span><span class="method">👥 84 respuestas</span></div></div><div class="payment-meta"><span class="status paid">Activa</span><h4>78%</h4><p>Participación</p></div><button class="more-btn">•••</button></article>
           <article class="payment-card"><div class="payment-icon pending">⏳</div><div class="payment-info"><span class="folio">#E-2026-013</span><h3>Renovación de áreas verdes</h3><p>Votación para elegir propuesta de jardinería.</p><div class="payment-tags"><span class="tag orange">Por cerrar</span><span class="method">📆 Cierra 21 Jun</span></div></div><div class="payment-meta"><span class="status pending">Pendiente</span><h4>56%</h4><p>Participación</p></div><button class="more-btn">•••</button></article>
@@ -65,7 +65,7 @@
         <label for="surveyEndDate">Fecha de cierre</label>
         <input type="date" id="surveyEndDate" name="surveyEndDate" required />
 
-        <button type="button">Guardar encuesta</button>
+        <button type="submit">Guardar encuesta</button>
       </form>
 
       <section class="digital-vote" aria-labelledby="voteTitle">

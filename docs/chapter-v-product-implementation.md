@@ -1,250 +1,145 @@
 # Capítulo V: Product Implementation
 
-UrbanConnect se implementa como una aplicación web estática construida con HTML5, CSS3 y JavaScript. El punto de entrada `index.html` presenta el inicio de sesión y conecta con el panel de administración en `dashboard.html` y sus módulos relacionados.
+UrbanConnect es una aplicación web estática construida con HTML5, CSS3 y JavaScript nativo. Su punto de entrada es `index.html`, que presenta la Landing Page pública. Desde allí el usuario accede a `login.html` y, después de autenticarse, a `dashboard.html` y los módulos administrativos.
 
 ## 5.1 Software Configuration Management
 
-La gestión de configuración de software define las herramientas, convenciones y procesos utilizados para mantener el producto reproducible y controlar sus cambios. UrbanConnect no requiere compilación ni instalación de dependencias: todos sus recursos se almacenan en el repositorio y el punto de entrada es `index.html`.
+El proyecto no requiere compilación, instalación de paquetes ni servidor. Los elementos bajo control de configuración son:
 
-Los elementos bajo control de configuración son:
+- páginas HTML en la raíz;
+- hojas de estilo en `css/`;
+- scripts en `js/`;
+- imágenes locales en `img/`;
+- escenarios Gherkin en `features/`;
+- documentación técnica en `docs/`.
 
-- Archivos HTML de la portada y módulos del prototipo.
-- Hojas de estilo dentro de `css/`.
-- Scripts básicos dentro de `js/`.
-- Imágenes locales dentro de `img/`.
-- Documentación técnica dentro de `docs/`.
-- Pruebas de aceptación en formato Gherkin dentro de `features/`.
-
-## 5.1.1 Software Development Environment Configuration
-
-### Entorno de desarrollo
+### 5.1.1 Software Development Environment Configuration
 
 | Elemento | Configuración |
 | --- | --- |
-| Sistema operativo | Windows, macOS o Linux |
-| Editor recomendado | Visual Studio Code |
-| Navegadores objetivo | Chrome, Edge y Firefox en versiones actuales |
-| Lenguajes | HTML5, CSS3 y JavaScript |
-| Control de versiones | Git |
-| Repositorio remoto | GitHub |
-| Despliegue | GitHub Pages |
+| Lenguajes | HTML5, CSS3 y JavaScript ECMAScript estándar |
+| Navegadores objetivo | Chrome, Edge y Firefox actuales |
+| Control de versiones | Git y GitHub |
+| Despliegue | GitHub Pages desde la raíz del repositorio |
+| Persistencia | `localStorage` del navegador |
+| Dependencias externas | Ninguna |
 
-### Ejecución
+Las rutas de CSS, JavaScript, imágenes y páginas son relativas. Esto permite abrir el prototipo localmente y publicarlo bajo el subdirectorio de GitHub Pages sin modificar rutas.
 
-El proyecto no utiliza React, Vue, Angular, Bootstrap, Tailwind ni un gestor de paquetes. Para ejecutarlo se abre `index.html` directamente en el navegador. Las rutas a CSS, JavaScript e imágenes son relativas para que funcionen tanto localmente como en GitHub Pages.
+Credenciales de demostración:
 
-Las credenciales de demostración son `admin` y `admin123`. Después de validarlas, `js/login.js` guarda el usuario activo en `localStorage` y dirige a `dashboard.html`. El usuario inicial se crea únicamente cuando todavía no existe la clave `usuarios`.
+```text
+Usuario: admin
+Contraseña: admin123
+```
 
-### Configuración responsive
+`js/login.js` valida las credenciales, guarda `usuarioActivo` y redirige a `dashboard.html`.
 
-El diseño se desarrolla con enfoque adaptable mediante CSS Grid, Flexbox y media queries:
+### 5.1.2 Source Code Management
 
-- Desktop: distribución amplia y navegación horizontal.
-- Tablet: reducción de columnas y espacios.
-- Móvil: contenido en una columna y menú desplegable.
-- Móvil compacto: botones a ancho completo y controles reorganizados.
-
-## 5.1.2 Source Code Management
-
-### GitHub como control de versiones
-
-Git registra el historial local del proyecto y GitHub aloja el repositorio remoto, facilita la colaboración y permite publicar el producto con GitHub Pages. El repositorio remoto del proyecto es:
+El repositorio remoto es:
 
 ```text
 https://github.com/SoporteJBM/UrbanConnect-LandingPage.git
 ```
 
-Cada cambio debe revisarse antes de agregarse al historial. Los archivos generados por el sistema operativo o el editor no deben formar parte de los commits.
+Se recomienda trabajar con ramas `feature/*`, integrar los cambios revisados en la rama estable y usar mensajes Conventional Commits, por ejemplo `fix: correct GitHub Pages navigation` o `docs: update implementation chapter`.
 
-### Flujo GitFlow
+### 5.1.3 Convenciones
 
-UrbanConnect adopta una versión simplificada de GitFlow:
+HTML:
 
-| Rama | Propósito |
-| --- | --- |
-| `main` | Código estable y listo para producción. |
-| `develop` | Integración de funcionalidades terminadas. |
-| `feature/*` | Desarrollo de una funcionalidad específica. |
-| `release/*` | Preparación y estabilización de una versión. |
-| `hotfix/*` | Correcciones urgentes sobre producción. |
+- un único `h1` por página y jerarquía semántica;
+- labels asociados a formularios e imágenes con texto alternativo;
+- nombres accesibles para botones de icono y `aria-live` para resultados;
+- rutas internas relativas y nombres de archivo respetando mayúsculas y minúsculas.
 
-Ejemplo de desarrollo de una funcionalidad:
+CSS:
 
-```bash
-git switch develop
-git pull origin develop
-git switch -c feature/responsive-landing-page
-git add .
-git commit -m "feat: implement responsive landing page"
-git push -u origin feature/responsive-landing-page
-```
+- variables compartidas en `css/global.css`;
+- estructura administrativa compartida en `css/layout.css`;
+- componentes y breakpoints propios en la hoja de cada página;
+- Grid, Flexbox y media queries sin frameworks.
 
-Después de la revisión, la rama `feature/*` se integra en `develop`. Una rama `release/*` se utiliza para preparar la publicación y finalmente se integra en `main` y `develop`.
+JavaScript:
 
-### Semantic Versioning
+- eventos con `addEventListener`, manipulación del DOM y validación nativa;
+- comprobación de existencia de elementos antes de usarlos;
+- `localStorage` solo para estado local del prototipo;
+- sin `fetch`, APIs externas, librerías ni frameworks.
 
-Las versiones siguen el formato `MAJOR.MINOR.PATCH`:
+### 5.1.4 Software Deployment Configuration
 
-- `v1.0.0`: primera versión estable de la interfaz web.
-- `v1.1.0`: nueva funcionalidad compatible con la versión anterior.
-- `v1.0.1`: corrección compatible sin nuevas funcionalidades.
+Para publicar en GitHub Pages:
 
-La versión `MAJOR` aumenta cuando existen cambios incompatibles, `MINOR` cuando se agregan funcionalidades compatibles y `PATCH` cuando se corrigen errores.
+1. subir la versión estable a `main`;
+2. seleccionar **Settings > Pages > Deploy from a branch**;
+3. elegir la rama `main` y la carpeta `/ (root)`;
+4. verificar `https://soportejbm.github.io/UrbanConnect-LandingPage/`.
 
-## 5.1.3 Source Code Style Guide & Conventions
-
-### HTML
-
-- Utilizar elementos semánticos como `header`, `nav`, `main`, `section`, `article` y `footer`.
-- Mantener un único `h1` y una jerarquía ordenada de encabezados.
-- Incluir textos alternativos en imágenes informativas.
-- Utilizar atributos ARIA solo cuando el elemento nativo no comunica todo el estado.
-- Mantener rutas relativas para recursos internos.
-
-### CSS
-
-- Escribir nombres de clases en inglés y `kebab-case`, por ejemplo `.hero-section`.
-- Declarar colores, tamaños y sombras reutilizables como variables en `:root`.
-- Organizar estilos desde reglas generales hacia componentes y media queries.
-- Evitar estilos en línea y selectores excesivamente específicos.
-- Diseñar desde tamaños flexibles y verificar desktop, tablet y móvil.
-
-### JavaScript
-
-- Usar JavaScript solo para interacciones necesarias.
-- Mantener funciones pequeñas y nombres descriptivos.
-- Usar `addEventListener` para gestionar eventos.
-- Comprobar que un elemento exista antes de utilizarlo.
-- No introducir dependencias para comportamientos simples.
-
-### Conventional Commits
-
-Los mensajes de commit siguen el formato `tipo: descripción`:
-
-- `feat: add mobile navigation`
-- `fix: preserve dashboard routes`
-- `docs: document GitHub Pages deployment`
-- `style: improve landing page spacing`
-
-Los tipos principales son:
-
-| Tipo | Uso |
-| --- | --- |
-| `feat` | Nueva funcionalidad. |
-| `fix` | Corrección de un defecto. |
-| `docs` | Cambios únicamente en documentación. |
-| `style` | Formato o estilos sin alterar la lógica. |
-
-## 5.1.4 Software Deployment Configuration
-
-### Despliegue en GitHub Pages
-
-UrbanConnect puede desplegarse sin proceso de construcción porque `index.html` está ubicado en la raíz del repositorio.
-
-Procedimiento:
-
-1. Integrar y subir la versión estable a la rama `main`.
-2. Abrir el repositorio en GitHub.
-3. Ingresar a **Settings > Pages**.
-4. En **Build and deployment**, seleccionar **Deploy from a branch**.
-5. Seleccionar la rama `main` y la carpeta `/ (root)`.
-6. Guardar la configuración y esperar a que GitHub publique el sitio.
-
-La URL esperada es:
-
-```text
-https://soportejbm.github.io/UrbanConnect-LandingPage/
-```
-
-Antes de una publicación se debe comprobar que:
-
-- `index.html` abre sin servidor local.
-- No existen rutas absolutas hacia archivos del equipo de desarrollo.
-- Las imágenes, hojas de estilo y scripts cargan correctamente.
-- La navegación funciona con teclado y pantalla táctil.
-- El contenido no se desborda en desktop, tablet o móvil.
+`index.html` es la Landing Page pública; sus botones de acceso apuntan a `login.html`. No se usan rutas absolutas dependientes del dominio.
 
 ## 5.2 Product Implementation
 
-### 5.2.1 Módulos implementados
+### 5.2.1 Flujo y módulos
 
-La navegación principal conecta doce páginas HTML:
-
-| Módulo | Archivo | Estado funcional |
+| Etapa | Archivo | Implementación |
 | --- | --- | --- |
-| Inicio de sesión | `index.html` | Validación local y redirección al dashboard. |
-| Registro | `registro.html` | Interfaz disponible; persistencia pendiente. |
-| Dashboard | `dashboard.html` | Resumen visual y enlaces internos. |
-| Comunicados | `comunicados.html` | Filtros y formulario modal; creación pendiente. |
-| Reportes | `reportes.html` | Gestión funcional de incidencias. |
-| Servicios | `servicios.html` | Filtros y formulario modal; creación pendiente. |
-| Encuestas | `encuestas.html` | Filtros y formulario modal; creación pendiente. |
-| Reservas | `reservas.html` | Filtros y formulario modal; creación pendiente. |
-| Pagos | `pagos.html` | Gestión simulada de cuotas, morosos, gastos y vouchers. |
-| Documentos | `documentos.html` | Filtros y formulario modal; creación pendiente. |
-| Accesos | `usuarios.html` | Gestión funcional de paquetes, stock, visitas, personal y mudanzas. |
-| Configuración | `configuracion.html` | Interfaz disponible; persistencia pendiente. |
+| Landing pública | `index.html` | Presentación, navegación responsive y acceso al login |
+| Autenticación | `login.html` | Validación local y redirección al dashboard |
+| Panel principal | `dashboard.html` | Indicadores y enlaces a todos los módulos |
+| Comunicados | `comunicados.html` | Avisos, contactos, sugerencias e invitados |
+| Reportes | `reportes.html` | Incidencias, responsables, evidencias, estados y urgencia |
+| Servicios | `servicios.html` | Mantenimiento, emergencia, activos, proveedores y zonas |
+| Encuestas | `encuestas.html` | Encuestas y votación comunitaria |
+| Reservas | `reservas.html` | Reserva, cancelación, reglas, aforo e inspección |
+| Pagos | `pagos.html` | Gastos, cuotas, morosos, recordatorios y vouchers |
+| Documentos | `documentos.html` | Filtros, modal y confirmación de registro simulado |
+| Usuarios | `usuarios.html` | Usuarios; accesos y operaciones como secciones internas |
+| Configuración | `configuracion.html` | Preferencias visuales del prototipo |
 
-Reservas, encuestas y servicios gestionan su búsqueda, filtrado y apertura de formularios modales desde `js/reservas.js`, `js/encuestas.js` y `js/servicios.js`. Comunicados y documentos conservan estas interacciones mediante `js/filters.js`, que no guarda los formularios. Las funciones completas con persistencia se concentran actualmente en `js/reportes.js`, `js/pagos.js` y `js/usuarios.js`.
-
-Los estilos de pagos, reservas, encuestas, servicios y documentos se mantienen en `css/pagos.css`, `css/reservas.css`, `css/encuestas.css`, `css/servicios.css` y `css/documentos.css`, respectivamente. Las hojas de reservas, encuestas, servicios y documentos ya no importan `css/pagos.css`: cada módulo contiene sus tarjetas, filtros, botones, badges, paneles, estados vacíos y breakpoints responsive. Este desacoplamiento evita que un cambio visual en pagos rompa la presentación de otras páginas.
+Pagos, reservas, encuestas, servicios y documentos utilizan hojas y scripts propios. Ninguno de esos módulos depende visualmente de `css/pagos.css`.
 
 ### 5.2.2 Persistencia
 
-UrbanConnect utiliza `localStorage` como almacenamiento del prototipo:
-
 | Clave | Responsabilidad |
 | --- | --- |
-| `usuarios` | Usuarios disponibles para autenticación. |
-| `usuarioActivo` | Sesión local activa. |
-| `uc_reportes_tickets` | Tickets de incidencias. |
-| `uc_pagos_cuotas` | Cuotas y pagos simulados. |
-| `uc_pagos_vouchers` | Estados de vouchers. |
-| `uc_paquetes` | Paquetes recibidos y entregados. |
-| `uc_stock` | Control de insumos del gimnasio. |
-| `uc_qr_visitas` | Credenciales temporales simuladas. |
-| `uc_personal` | Autorizaciones de personal doméstico. |
-| `uc_mudanzas` | Mudanzas y órdenes de protección. |
+| `usuarios`, `usuarioActivo` | Autenticación local |
+| `uc_reportes_tickets` | Incidencias y seguimiento |
+| `uc_pagos_cuotas`, `uc_pagos_vouchers` | Cuotas y vouchers |
+| `uc_paquetes`, `uc_stock` | Operaciones y stock |
+| `uc_qr_visitas`, `uc_personal`, `uc_mudanzas` | Accesos y mudanzas |
+| `urbanConnect_mantenimientos` | Calendario preventivo |
+| `urbanConnect_proveedores` | Proveedores externos |
 
-La información permanece solo en el navegador. No existe API, base de datos remota ni sincronización entre dispositivos.
+La persistencia es local y no representa una base de datos ni autenticación productiva.
 
 ### 5.2.3 User Stories core y trazabilidad
 
-El estado actual incluye 15 historias numeradas con implementación y escenarios Gherkin:
+Existen 30 HU core visibles y cubiertas por Gherkin:
 
 | Área | Historias | Feature |
 | --- | --- | --- |
 | Reportes | `HU01`, `HU02`, `HU03`, `HU04`, `HU07` | `features/reportes.feature` |
+| Servicios | `HU05`, `HU06`, `HU08`, `HU22`, `HU23` | `features/servicios.feature` |
 | Pagos | `HU09`, `HU10`, `HU11`, `HU12`, `HU14` | `features/pagos.feature` |
-| Accesos | `HU21`, `HU31`, `HU32`, `HU33`, `HU34` | `features/accesos.feature` |
+| Comunidad | `HU15`, `HU17`, `HU18`, `HU19`, `HU20` | `features/comunidad.feature` |
+| Reservas | `HU16`, `HU27`, `HU28`, `HU29`, `HU30` | `features/reservas.feature` |
+| Usuarios y accesos | `HU21`, `HU31`, `HU32`, `HU33`, `HU34` | `features/accesos.feature` |
 
-La meta de 30 User Stories core todavía no está completa: faltan 15 historias numeradas con su implementación, persistencia cuando corresponda y escenarios de aceptación.
+`features/login.feature` documenta además el flujo de autenticación y presentación responsive.
 
-### 5.2.4 Pruebas de aceptación
+### 5.2.4 Responsive y accesibilidad
 
-Las pruebas se expresan en Gherkin y se distribuyen de la siguiente manera:
+Las páginas usan Grid, Flexbox y breakpoints para escritorio, tablet y móvil. Los formularios reorganizan columnas en pantallas estrechas, la navegación pública se convierte en menú y los paneles administrativos reducen sus columnas progresivamente.
 
-| Archivo | Escenarios | Cobertura |
-| --- | ---: | --- |
-| `features/login.feature` | 5 | Formulario, acceso válido e inválido, registro y responsive. |
-| `features/reportes.feature` | 5 | Creación, asignación, evidencias, estados y urgencia. |
-| `features/pagos.feature` | 5 | Gastos, cuotas, morosos, recordatorios y vouchers. |
-| `features/accesos.feature` | 5 | Paquetes, stock, visitas, personal y mudanzas. |
+Se utilizan labels, texto alternativo, `aria-label`, `aria-current`, roles de diálogo y regiones `aria-live` en los principales resultados dinámicos.
 
-El repositorio contiene 20 escenarios en total. Los escenarios se ejecutan manualmente durante esta etapa; todavía no existe un runner automatizado de Gherkin.
+### 5.2.5 Limitaciones conocidas
 
-### 5.2.5 Responsive y accesibilidad
+- La autenticación es local y no protege rutas mediante backend.
+- Registro y algunas preferencias de configuración son demostraciones visuales.
+- Los archivos se representan por nombre; no existe carga remota.
+- Los escenarios Gherkin son especificaciones manuales y no tienen runner automatizado.
 
-Las hojas de estilo incluyen puntos de quiebre para reorganizar navegación, columnas, formularios, tarjetas y tablas. La validación previa a una publicación debe cubrir desktop, tablet y móvil en Chrome, Edge y Firefox.
-
-Todas las imágenes HTML actuales tienen texto alternativo. Los resultados dinámicos principales de reportes, pagos y accesos disponen de regiones `aria-live`. Como trabajo pendiente deben asociarse labels a algunos filtros y controles de configuración, proporcionar nombres accesibles a botones de icono y verificar navegación completa por teclado.
-
-### 5.2.6 Limitaciones conocidas
-
-- Los formularios de comunicados, documentos, encuestas, reservas y servicios se muestran en modal, pero todavía no crean registros.
-- Registro y configuración no conservan cambios.
-- Algunos botones de acciones rápidas, filtros y menús contextuales son elementos visuales sin comportamiento asociado.
-- La autenticación es una simulación local y no protege las páginas mediante un backend.
-- No hay pruebas automatizadas ni integración continua para los escenarios Gherkin.
-
-Estas limitaciones deben cerrarse antes de declarar completas las 30 User Stories core o una versión productiva.
+Estas limitaciones son adecuadas para el alcance de prototipo estático, pero deben resolverse antes de una versión productiva con datos reales.

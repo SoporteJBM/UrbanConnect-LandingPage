@@ -42,8 +42,8 @@
           <p>Administra solicitudes y proveedores de mantenimiento del edificio.</p>
         </div>
         <div class="top-actions">
-          <button class="icon-btn">🔍</button>
-          <button class="icon-btn notification">🔔<span>3</span></button>
+          <button class="icon-btn" type="button" aria-label="Buscar">🔍</button>
+          <button class="icon-btn notification" type="button" aria-label="Ver notificaciones">🔔<span>3</span></button>
           <div class="profile"><div class="avatar">JP</div><div><h4>Juan Pérez</h4><p>Administrador</p></div><span class="arrow">⌄</span></div>
         </div>
       </header>
@@ -63,15 +63,81 @@
           <button class="create-btn"><span>＋</span>Nuevo servicio</button>
         </div>
         <div class="filters">
-          <div class="search-box"><input type="text" placeholder="Buscar servicio o proveedor..." /><span>🔍</span></div>
-          <select><option>Todas las categorías</option><option>Plomería</option><option>Electricidad</option><option>Limpieza</option></select>
-          <select><option>Más recientes</option><option>Mayor prioridad</option></select>
+          <div class="search-box"><input type="text" placeholder="Buscar servicio o proveedor..." aria-label="Buscar servicios" /><span>🔍</span></div>
+          <select aria-label="Filtrar por categoría"><option>Todas las categorías</option><option>Plomería</option><option>Electricidad</option><option>Limpieza</option></select>
+          <select aria-label="Ordenar servicios"><option>Más recientes</option><option>Mayor prioridad</option></select>
           <button class="filter-btn">⚗️ Filtros</button>
         </div>
         <div class="payment-list">
           <article class="payment-card"><div class="payment-icon overdue">!</div><div class="payment-info"><span class="folio">#S-2026-018</span><h3>Revisión de bomba de agua</h3><p>Proveedor: HidroService · Cuarto de máquinas · Atención urgente.</p><div class="payment-tags"><span class="tag red">Plomería</span><span class="method">📌 Hoy</span></div></div><div class="payment-meta"><span class="status overdue">Urgente</span><h4>S/ 1,800</h4><p>Estimado</p></div><button class="more-btn">•••</button></article>
           <article class="payment-card"><div class="payment-icon pending">⏳</div><div class="payment-info"><span class="folio">#S-2026-017</span><h3>Cambio de luminarias</h3><p>Proveedor: ElectroMax · Estacionamiento nivel 2.</p><div class="payment-tags"><span class="tag orange">Electricidad</span><span class="method">🧾 Cotización enviada</span></div></div><div class="payment-meta"><span class="status pending">Pendiente</span><h4>S/ 950</h4><p>Vence 19 Jun</p></div><button class="more-btn">•••</button></article>
           <article class="payment-card"><div class="payment-icon paid">✓</div><div class="payment-info"><span class="folio">#S-2026-016</span><h3>Limpieza profunda de lobby</h3><p>Proveedor: CleanPro · Torre A · Servicio terminado.</p><div class="payment-tags"><span class="tag green">Limpieza</span><span class="method">✅ Validado</span></div></div><div class="payment-meta"><span class="status paid">Completado</span><h4>S/ 620</h4><p>14 Jun 2026</p></div><button class="more-btn">•••</button></article>
+        </div>
+      </section>
+
+      <section class="operations-section" aria-labelledby="operationsTitle">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">GESTI&Oacute;N OPERATIVA</span>
+            <h2 id="operationsTitle">Servicios para la comunidad</h2>
+            <p>Programa mantenimientos, consulta activos y atiende operaciones del edificio.</p>
+          </div>
+        </div>
+
+        <div class="operations-grid">
+          <article class="operation-card" id="hu05">
+            <div class="operation-title"><span class="operation-icon blue">&#128197;</span><div><span class="hu-label">HU-05</span><h3>Calendario preventivo</h3></div></div>
+            <p>Programa el mantenimiento de equipos y &aacute;reas comunes.</p>
+            <form id="maintenanceForm" class="compact-form">
+              <label for="maintenanceTask">Actividad</label>
+              <input id="maintenanceTask" type="text" placeholder="Ej. Inspecci&oacute;n de ascensor" required />
+              <div class="field-row">
+                <div><label for="maintenanceDate">Fecha</label><input id="maintenanceDate" type="date" required /></div>
+                <div><label for="maintenanceFrequency">Frecuencia</label><select id="maintenanceFrequency" required><option value="">Seleccionar</option><option>Mensual</option><option>Trimestral</option><option>Semestral</option><option>Anual</option></select></div>
+              </div>
+              <button class="operation-btn" type="submit">Programar mantenimiento</button>
+            </form>
+            <div id="maintenanceResult" class="operation-result" role="status" aria-live="polite">A&uacute;n no hay mantenimientos programados.</div>
+          </article>
+
+          <article class="operation-card emergency-card" id="hu06">
+            <div class="operation-title"><span class="operation-icon red">&#9888;</span><div><span class="hu-label">HU-06</span><h3>Bot&oacute;n de p&aacute;nico</h3></div></div>
+            <p>Env&iacute;a una alerta inmediata al personal de seguridad.</p>
+            <label for="emergencyLocation">Ubicaci&oacute;n de la emergencia</label>
+            <select id="emergencyLocation"><option>Lobby principal</option><option>Estacionamiento</option><option>Torre A</option><option>Torre B</option><option>&Aacute;rea com&uacute;n</option></select>
+            <button id="panicButton" class="panic-btn" type="button">&#9888; Activar alerta de emergencia</button>
+            <div id="panicResult" class="operation-result" role="alert" aria-live="assertive">La alerta se encuentra inactiva.</div>
+          </article>
+
+          <article class="operation-card" id="hu08">
+            <div class="operation-title"><span class="operation-icon green">&#128736;</span><div><span class="hu-label">HU-08</span><h3>Historial de activos</h3></div></div>
+            <p>Consulta intervenciones y estado de los activos registrados.</p>
+            <label for="assetSelect">Activo</label>
+            <select id="assetSelect"><option value="">Selecciona un activo</option><option value="ascensor-a">Ascensor Torre A</option><option value="bomba-agua">Bomba de agua</option><option value="generador">Generador el&eacute;ctrico</option></select>
+            <button id="assetHistoryButton" class="operation-btn secondary" type="button">Ver historial</button>
+            <div id="assetHistoryResult" class="operation-result" role="status" aria-live="polite">Selecciona un activo para consultar su historial.</div>
+          </article>
+
+          <article class="operation-card" id="hu22">
+            <div class="operation-title"><span class="operation-icon purple">&#128188;</span><div><span class="hu-label">HU-22</span><h3>Proveedores externos</h3></div></div>
+            <p>Registra proveedores autorizados para prestar servicios.</p>
+            <form id="providerForm" class="compact-form">
+              <label for="providerName">Raz&oacute;n social</label><input id="providerName" type="text" placeholder="Ej. Mantenimiento Andino SAC" required />
+              <div class="field-row"><div><label for="providerRuc">RUC</label><input id="providerRuc" type="text" inputmode="numeric" maxlength="11" pattern="[0-9]{11}" placeholder="11 d&iacute;gitos" required /></div><div><label for="providerSpecialty">Especialidad</label><select id="providerSpecialty" required><option value="">Seleccionar</option><option>Plomer&iacute;a</option><option>Electricidad</option><option>Limpieza</option><option>Seguridad</option></select></div></div>
+              <button class="operation-btn" type="submit">Registrar proveedor</button>
+            </form>
+            <div id="providerResult" class="operation-result" role="status" aria-live="polite">No se registraron proveedores en esta sesi&oacute;n.</div>
+          </article>
+
+          <article class="operation-card" id="hu23">
+            <div class="operation-title"><span class="operation-icon orange">&#128205;</span><div><span class="hu-label">HU-23</span><h3>Verificaci&oacute;n de zona reservada</h3></div></div>
+            <p>Valida si una zona puede utilizarse en la fecha indicada.</p>
+            <label for="reservedZone">Zona</label>
+            <select id="reservedZone"><option value="">Selecciona una zona</option><option value="parrilla">Zona de parrillas</option><option value="sum">Sala de usos m&uacute;ltiples</option><option value="terraza">Terraza</option></select>
+            <label for="zoneDate">Fecha</label><input id="zoneDate" type="date" />
+            <button id="verifyZoneButton" class="operation-btn" type="button">Verificar disponibilidad</button>
+            <div id="zoneResult" class="operation-result" role="status" aria-live="polite">Selecciona la zona y la fecha que deseas verificar.</div>
+          </article>
         </div>
       </section>
 
@@ -104,7 +170,7 @@
         <label for="serviceDescription">Descripción</label>
         <textarea id="serviceDescription" name="serviceDescription" rows="4" placeholder="Describe el servicio solicitado..." required></textarea>
 
-        <button type="button">Guardar servicio</button>
+        <button type="submit">Guardar servicio</button>
       </form>
     </main>
 
